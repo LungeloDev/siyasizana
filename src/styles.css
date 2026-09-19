@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+    /* ThuthukaSA */
+    --color-brand-primary: #F7941D;
+    /* Orange */
+    --color-brand-primary-dark: #D97800;
+
+    --color-brand-dark: #333333;
+    /* Dark grey */
+    --color-brand-charcoal: #242424;
+
+    --color-brand-white: #FFFFFF;
+    --color-brand-light: #F7F7F7;
+    --color-brand-muted: #6B6B6B;
+}

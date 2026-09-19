@@ -1,0 +1,271 @@
+:host {
+    display: block;
+}
+
+.dashboard-page {
+    animation: dashboardEnter 550ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+/* =============================================
+   CARDS
+============================================= */
+
+.kpi-card,
+.dashboard-card {
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    background: #ffffff;
+    border-radius: 1.15rem;
+}
+
+.kpi-card {
+    position: relative;
+    overflow: hidden;
+    padding: 1.35rem;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.025);
+    transition:
+        transform 250ms ease,
+        box-shadow 250ms ease,
+        border-color 250ms ease;
+}
+
+.kpi-card::after {
+    content: '';
+    position: absolute;
+    right: -35px;
+    bottom: -50px;
+    width: 110px;
+    height: 110px;
+    border-radius: 999px;
+    background: rgba(214, 154, 18, 0.035);
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(214, 154, 18, 0.2);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+}
+
+.dashboard-card {
+    padding: 1.5rem;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.025);
+}
+
+.kpi-icon {
+    display: flex;
+    width: 2.8rem;
+    height: 2.8rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.85rem;
+}
+
+.kpi-icon svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.gold-icon {
+    color: var(--color-brand-accent);
+    background: #fff7df;
+}
+
+.green-icon {
+    color: var(--color-brand-primary);
+    background: #edf5f1;
+}
+
+.blue-icon {
+    color: #32667a;
+    background: #eef6f8;
+}
+
+.amber-icon {
+    color: #a76d00;
+    background: #fff3d4;
+}
+
+.kpi-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.kpi-value {
+    font-size: 1.75rem;
+    line-height: 1;
+    font-weight: 750;
+    letter-spacing: -0.035em;
+    color: #172033;
+}
+
+.trend-positive {
+    padding: 0.3rem 0.55rem;
+    border-radius: 999px;
+    background: #edf8f2;
+    color: #21835a;
+    font-size: 0.62rem;
+    font-weight: 800;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: 750;
+    color: #172033;
+}
+
+.card-description {
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+
+/* =============================================
+   CHART
+============================================= */
+
+.chart-grid {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-grid span {
+    width: 100%;
+    border-top: 1px dashed #e8ebef;
+}
+
+
+/* =============================================
+   DONUT
+============================================= */
+
+.donut-chart {
+    display: flex;
+    width: 155px;
+    height: 155px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:
+        conic-gradient(var(--color-brand-primary) 0deg 290deg,
+            var(--color-brand-accent) 290deg 314deg,
+            #e9c975 314deg 360deg);
+}
+
+.donut-inner {
+    display: flex;
+    width: 108px;
+    height: 108px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white;
+}
+
+.fee-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+.fee-row>div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.fee-row strong {
+    color: #172033;
+    font-size: 0.75rem;
+}
+
+.fee-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+}
+
+
+/* =============================================
+   TABLE
+============================================= */
+
+table th {
+    padding: 0.8rem 1.5rem;
+    text-align: left;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+table td {
+    padding: 1rem 1.5rem;
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.58rem;
+    font-weight: 800;
+}
+
+.status-new {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.status-contacted {
+    background: #eef6f8;
+    color: #32667a;
+}
+
+.status-consultation {
+    background: #fff5d9;
+    color: #a76d00;
+}
+
+.status-converted {
+    background: #edf8f2;
+    color: #21835a;
+}
+
+
+/* =============================================
+   ANIMATION
+============================================= */
+
+@keyframes dashboardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dashboard-page {
+        animation: none;
+    }
+}

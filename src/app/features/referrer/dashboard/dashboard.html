@@ -1,0 +1,493 @@
+<div class="referrer-dashboard px-5 py-7 sm:px-7 lg:px-9 lg:py-8">
+
+    <!-- ====================================================== -->
+    <!-- WELCOME -->
+    <!-- ====================================================== -->
+
+    <section class="flex flex-col justify-between gap-5
+           lg:flex-row lg:items-end">
+
+        <div>
+            <p class="text-[10px] font-bold uppercase
+               tracking-[0.18em] text-brand-accent">
+                My Siyasizana
+            </p>
+
+            <h1 class="mt-2 text-3xl font-bold
+               tracking-[-0.035em] text-[#172033]">
+                Welcome back, Nomsa
+            </h1>
+
+            <p class="mt-2 max-w-xl text-sm
+               leading-6 text-slate-500">
+                Help someone take the next step in their
+                financial journey and follow your referrals here.
+            </p>
+        </div>
+
+
+        <a routerLink="/referrer/new" class="group inline-flex items-center
+             justify-center gap-3 rounded-xl
+             bg-brand-accent px-5 py-3.5
+             text-xs font-bold text-white
+             shadow-[0_12px_28px_rgba(214,154,18,.20)]
+             transition duration-300
+             hover:-translate-y-0.5
+             hover:bg-brand-accent">
+            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="8" r="3" />
+                <path d="M3 20c0-4 2-7 6-7s6 3 6 7" />
+                <path d="M18 8v6M15 11h6" />
+            </svg>
+
+            Make a Referral
+
+            <span class="transition-transform
+               group-hover:translate-x-1">
+                →
+            </span>
+        </a>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- HERO REFERRAL CARD -->
+    <!-- ====================================================== -->
+
+    <section class="relative mt-7 overflow-hidden
+           rounded-[26px] bg-brand-primary
+           px-6 py-7 text-white
+           sm:px-8 sm:py-8">
+
+        <!-- Decoration -->
+        <div class="absolute -right-20 -top-28
+             h-72 w-72 rounded-full
+             border-[45px] border-white/[0.025]"></div>
+
+        <div class="absolute right-[20%] top-[-100px]
+             h-72 w-72 rounded-full
+             bg-brand-accent/10 blur-3xl"></div>
+
+
+        <div class="relative z-10 grid gap-8
+             lg:grid-cols-[1fr_auto] lg:items-center">
+
+            <div>
+
+                <div class="flex items-center gap-2">
+
+                    <div class="flex h-9 w-9 items-center
+                   justify-center rounded-xl
+                   bg-brand-accent text-white">
+                        <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="1.8">
+                            <path d="M5 12h12" />
+                            <path d="m13 8 4 4-4 4" />
+                        </svg>
+                    </div>
+
+                    <span class="text-[10px] font-bold uppercase
+                   tracking-[0.18em] text-[#e7b63e]">
+                        Your Referral Code
+                    </span>
+
+                </div>
+
+
+                <h2 class="mt-5 text-2xl font-bold
+                 tracking-[-0.03em] sm:text-3xl">
+                    Share. Help. Earn.
+                </h2>
+
+                <p class="mt-2 max-w-xl text-sm
+                 leading-6 text-white/55">
+                    Share your Siyasizana referral code with family,
+                    friends or colleagues who may benefit from
+                    ThuthukaSA's financial services.
+                </p>
+
+            </div>
+
+
+            <!-- CODE -->
+            <div class="min-w-[280px] rounded-2xl
+               border border-white/10
+               bg-white/[0.07] p-4 backdrop-blur">
+
+                <p class="text-[9px] font-bold uppercase
+                 tracking-[0.16em] text-white/40">
+                    Referral Code
+                </p>
+
+                <div class="mt-3 flex items-center justify-between
+                 gap-5">
+
+                    <span class="text-2xl font-bold
+                   tracking-[0.12em] text-white">
+                        {{ referralCode }}
+                    </span>
+
+                    <button type="button" class="flex h-10 items-center gap-2
+                   rounded-xl bg-brand-accent
+                   px-4 text-[10px] font-bold
+                   text-white transition
+                   hover:bg-brand-accent" (click)="copyReferralCode()">
+                        @if (copied) {
+                        ✓ Copied
+                        } @else {
+                        Copy
+                        }
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- KPI CARDS -->
+    <!-- ====================================================== -->
+
+    <section class="mt-5 grid gap-4
+           sm:grid-cols-2 xl:grid-cols-4">
+
+        <!-- Total -->
+        <article class="customer-kpi">
+
+            <div class="customer-kpi-icon gold">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 6h14M5 12h14M5 18h9" />
+                </svg>
+            </div>
+
+            <div>
+                <p class="customer-kpi-label">
+                    My Referrals
+                </p>
+
+                <p class="customer-kpi-value">
+                    8
+                </p>
+
+                <p class="customer-kpi-subtitle">
+                    Total submitted
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- Progress -->
+        <article class="customer-kpi">
+
+            <div class="customer-kpi-icon blue">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                </svg>
+            </div>
+
+            <div>
+                <p class="customer-kpi-label">
+                    In Progress
+                </p>
+
+                <p class="customer-kpi-value">
+                    3
+                </p>
+
+                <p class="customer-kpi-subtitle">
+                    Being assisted
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- Successful -->
+        <article class="customer-kpi">
+
+            <div class="customer-kpi-icon green">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="m8 12 2.5 2.5L16 9" />
+                </svg>
+            </div>
+
+            <div>
+                <p class="customer-kpi-label">
+                    Successful
+                </p>
+
+                <p class="customer-kpi-value">
+                    4
+                </p>
+
+                <p class="customer-kpi-subtitle">
+                    Qualified referrals
+                </p>
+            </div>
+
+        </article>
+
+
+        <!-- Earnings -->
+        <article class="customer-kpi reward-kpi">
+
+            <div class="customer-kpi-icon reward">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 12v8H4v-8" />
+                    <path d="M12 20V8" />
+                    <path d="M3 8h18v4H3z" />
+                </svg>
+            </div>
+
+            <div>
+                <p class="customer-kpi-label">
+                    Total Rewards
+                </p>
+
+                <p class="customer-kpi-value">
+                    R2,000
+                </p>
+
+                <p class="customer-kpi-subtitle">
+                    Earned to date
+                </p>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- MAIN CONTENT -->
+    <!-- ====================================================== -->
+
+    <section class="mt-5 grid gap-5
+           xl:grid-cols-[1.4fr_0.65fr]">
+
+        <!-- MY REFERRALS -->
+        <article class="customer-card overflow-hidden !p-0">
+
+            <div class="flex items-center justify-between
+               border-b border-slate-100 px-6 py-5">
+
+                <div>
+                    <h2 class="card-title">
+                        My Recent Referrals
+                    </h2>
+
+                    <p class="card-description">
+                        Follow the progress of people you've referred.
+                    </p>
+                </div>
+
+                <a routerLink="/referrer/referrals" class="text-xs font-bold
+                 text-brand-accent">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="divide-y divide-slate-100">
+
+                @for (referral of referrals; track referral.id) {
+
+                <div class="flex flex-col gap-4 px-6 py-4
+                   transition hover:bg-[#fafaf8]
+                   sm:flex-row sm:items-center">
+
+                    <div class="flex min-w-0 flex-1
+                     items-center gap-3">
+
+                        <div class="flex h-10 w-10 shrink-0
+                       items-center justify-center
+                       rounded-full bg-brand-primary/10
+                       text-[10px] font-bold
+                       text-brand-primary">
+                            {{ referral.initials }}
+                        </div>
+
+                        <div class="min-w-0">
+
+                            <!-- Privacy: simplified name -->
+                            <p class="truncate text-xs font-bold
+                         text-[#172033]">
+                                {{ referral.name }}
+                            </p>
+
+                            <p class="mt-1 text-[10px]
+                         text-slate-400">
+                                {{ referral.id }} · {{ referral.date }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="referral-status" [ngClass]="getStatusClass(referral.status)">
+                        {{ referral.status }}
+                    </span>
+
+                </div>
+
+                }
+
+            </div>
+
+        </article>
+
+
+        <!-- REWARD SUMMARY -->
+        <article class="customer-card">
+
+            <div class="flex h-11 w-11 items-center
+               justify-center rounded-xl
+               bg-brand-accent/10 text-brand-accent">
+                <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="1.8">
+                    <path d="M20 12v8H4v-8" />
+                    <path d="M12 20V8" />
+                    <path d="M3 8h18v4H3z" />
+                </svg>
+            </div>
+
+
+            <h2 class="mt-5 card-title">
+                My Rewards
+            </h2>
+
+            <p class="card-description">
+                Your current Siyasizana reward summary.
+            </p>
+
+
+            <div class="mt-7 space-y-5">
+
+                <div class="reward-row">
+                    <span>Paid</span>
+
+                    <strong>R1,500</strong>
+                </div>
+
+                <div class="reward-row">
+                    <span>Qualified</span>
+
+                    <strong class="text-brand-accent">
+                        R500
+                    </strong>
+                </div>
+
+                <div class="reward-row">
+                    <span>Pending</span>
+
+                    <strong>R1,000</strong>
+                </div>
+
+            </div>
+
+
+            <div class="mt-7 rounded-2xl
+               bg-[#f7f4eb] p-4">
+                <p class="text-[10px] font-bold uppercase
+                 tracking-[0.12em] text-[#a76d00]">
+                    Remember
+                </p>
+
+                <p class="mt-2 text-[11px]
+                 leading-5 text-slate-500">
+                    A R500 referral reward qualifies after
+                    three successful premiums have been deducted.
+                </p>
+            </div>
+
+
+            <a routerLink="/referrer/rewards" class="mt-5 flex w-full items-center
+               justify-center rounded-xl
+               border border-slate-200 py-3
+               text-xs font-bold text-slate-500
+               transition hover:border-brand-accent/30
+               hover:text-brand-accent">
+                View reward history
+            </a>
+
+        </article>
+
+    </section>
+
+
+    <!-- ====================================================== -->
+    <!-- HOW IT WORKS -->
+    <!-- ====================================================== -->
+
+    <section class="mt-5">
+
+        <article class="customer-card">
+
+            <div>
+                <h2 class="card-title">
+                    How your referral progresses
+                </h2>
+
+                <p class="card-description">
+                    We'll keep you updated while ThuthukaSA assists
+                    the person you've referred.
+                </p>
+            </div>
+
+
+            <div class="mt-7 grid gap-4
+               md:grid-cols-4">
+
+                <div class="journey-step">
+                    <span>01</span>
+                    <strong>Submitted</strong>
+                    <p>You submit your referral.</p>
+                </div>
+
+                <div class="journey-step">
+                    <span>02</span>
+                    <strong>In Progress</strong>
+                    <p>ThuthukaSA assists your referral.</p>
+                </div>
+
+                <div class="journey-step">
+                    <span>03</span>
+                    <strong>Qualified</strong>
+                    <p>Programme requirements are completed.</p>
+                </div>
+
+                <div class="journey-step">
+                    <span>04</span>
+                    <strong>Reward Paid</strong>
+                    <p>Your qualifying R500 reward is paid.</p>
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <footer class="mt-8 flex flex-col gap-2
+           border-t border-slate-200/70
+           py-5 text-[10px] text-slate-400
+           sm:flex-row sm:justify-between">
+        <p>
+            Siyasizana Referral Programme · ThuthukaSA
+        </p>
+
+        <p>
+            Built with purpose by LungeloDev
+        </p>
+    </footer>
+
+</div>

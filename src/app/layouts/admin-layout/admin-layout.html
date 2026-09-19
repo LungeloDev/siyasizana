@@ -1,0 +1,395 @@
+<div class="min-h-screen bg-[#f7f7f5]">
+
+    <!-- ===================================================== -->
+    <!-- MOBILE OVERLAY -->
+    <!-- ===================================================== -->
+
+    @if (sidebarOpen) {
+    <button type="button" aria-label="Close sidebar"
+        class="fixed inset-0 z-40 bg-[#101820]/40 backdrop-blur-sm lg:hidden" (click)="closeSidebar()"></button>
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- SIDEBAR -->
+    <!-- ===================================================== -->
+
+    <aside class="fixed inset-y-0 left-0 z-50 flex w-[270px]
+           flex-col border-r border-white/5 bg-brand-primary
+           transition-transform duration-300 ease-out lg:translate-x-0" [class.-translate-x-full]="!sidebarOpen"
+        [class.translate-x-0]="sidebarOpen">
+
+        <!-- Brand -->
+        <div class="flex h-[88px] items-center justify-between
+             border-b border-white/[0.07] px-6">
+
+            <a routerLink="/admin/dashboard" class="flex items-center gap-3" (click)="closeSidebar()">
+
+                <div class="flex h-11 w-11 items-center justify-center
+                 rounded-2xl bg-brand-accent/15">
+                    <svg viewBox="0 0 24 24" fill="none" class="h-7 w-7 text-brand-accent" stroke="currentColor"
+                        stroke-width="1.6">
+                        <path d="M12 21V10m0 0C9 10 6 8 6 5c3 0 6 1 6 5Zm0 0c3 0 6-2 6-5-3 0-6 1-6 5ZM8 21h8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <div>
+                    <div class="font-serif text-[20px] font-semibold
+                   tracking-[0.07em] text-white">
+                        THUTHUKA<span class="text-brand-accent">SA</span>
+                    </div>
+
+                    <div class="text-[7px] font-bold uppercase
+                   tracking-[0.26em] text-white/35">
+                        Grow with purpose
+                    </div>
+                </div>
+
+            </a>
+
+
+            <button type="button" class="flex h-9 w-9 items-center justify-center
+               rounded-xl text-white/50 hover:bg-white/10
+               hover:text-white lg:hidden" (click)="closeSidebar()">
+                <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="2">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                </svg>
+            </button>
+
+        </div>
+
+
+        <!-- Programme Label -->
+        <div class="px-5 pt-7">
+            <div class="rounded-2xl border border-white/[0.07]
+               bg-white/[0.05] px-4 py-4">
+                <div class="flex items-center gap-3">
+
+                    <div class="flex h-9 w-9 items-center justify-center
+                   rounded-xl bg-brand-accent text-white">
+                        <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="1.8">
+                            <path
+                                d="M20 12v8H4v-8m8 8V8m0 0H8.5A2.5 2.5 0 1 1 11 5.5V8Zm0 0h3.5A2.5 2.5 0 1 0 13 5.5V8ZM3 8h18v4H3V8Z" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <p class="text-[9px] font-bold uppercase
+                     tracking-[0.16em] text-brand-accent">
+                            Programme
+                        </p>
+
+                        <p class="mt-0.5 text-sm font-semibold text-white">
+                            Siyasizana
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Navigation -->
+        <nav class="mt-7 flex-1 overflow-y-auto px-4">
+
+            <p class="mb-3 px-3 text-[9px] font-bold uppercase
+               tracking-[0.2em] text-white/25">
+                Management
+            </p>
+
+            <div class="space-y-1">
+
+                @for (item of navItems; track item.route) {
+
+                <a [routerLink]="item.route" routerLinkActive="active-nav" class="nav-item" (click)="closeSidebar()">
+
+                    <!-- Dashboard -->
+                    @if (item.icon === 'dashboard') {
+                    <svg viewBox="0 0 24 24" class="nav-icon">
+                        <rect x="3" y="3" width="7" height="7" rx="2" />
+                        <rect x="14" y="3" width="7" height="7" rx="2" />
+                        <rect x="3" y="14" width="7" height="7" rx="2" />
+                        <rect x="14" y="14" width="7" height="7" rx="2" />
+                    </svg>
+                    }
+
+                    <!-- Referrals -->
+                    @if (item.icon === 'referrals') {
+                    <svg viewBox="0 0 24 24" class="nav-icon">
+                        <path d="M5 12h12" />
+                        <path d="m13 8 4 4-4 4" />
+                        <path d="M19 5v14" />
+                    </svg>
+                    }
+
+                    <!-- Referrers -->
+                    @if (item.icon === 'referrers') {
+                    <svg viewBox="0 0 24 24" class="nav-icon">
+                        <circle cx="9" cy="8" r="3" />
+                        <circle cx="17" cy="9" r="2" />
+                        <path d="M3 20c0-4 2-7 6-7s6 3 6 7" />
+                        <path d="M15 14c3 0 5 2 5 5" />
+                    </svg>
+                    }
+
+                    <!-- Products -->
+                    @if (item.icon === 'products') {
+                    <svg viewBox="0 0 24 24" class="nav-icon">
+                        <path d="M5 4h14v16H5z" />
+                        <path d="M8 8h8M8 12h8M8 16h5" />
+                    </svg>
+                    }
+
+                    <!-- Reports -->
+                    @if (item.icon === 'reports') {
+                    <svg viewBox="0 0 24 24" class="nav-icon">
+                        <path d="M5 20V10" />
+                        <path d="M12 20V4" />
+                        <path d="M19 20v-7" />
+                    </svg>
+                    }
+
+                    <!-- Users -->
+                    @if (item.icon === 'users') {
+                    <svg viewBox="0 0 24 24" class="nav-icon">
+                        <circle cx="12" cy="8" r="4" />
+                        <path d="M4 21c0-5 3-8 8-8s8 3 8 8" />
+                    </svg>
+                    }
+
+                    <span>{{ item.label }}</span>
+
+                </a>
+
+                }
+
+            </div>
+
+        </nav>
+
+
+        <!-- Sidebar Footer -->
+        <div class="border-t border-white/[0.07] p-4">
+
+            <div class="flex items-center gap-3 rounded-2xl
+               px-3 py-3">
+
+                <div class="flex h-10 w-10 shrink-0 items-center
+                 justify-center rounded-full
+                 bg-brand-accent text-sm font-bold text-white">
+                    TS
+                </div>
+
+                <div class="min-w-0 flex-1">
+                    <p class="truncate text-sm font-semibold text-white">
+                        ThuthukaSA Admin
+                    </p>
+
+                    <p class="truncate text-[11px] text-white/35">
+                        Administrator
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="mt-4 px-3 text-[9px] text-white/20">
+                Siyasizana Referral Management
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ===================================================== -->
+    <!-- MAIN AREA -->
+    <!-- ===================================================== -->
+
+    <div class="min-h-screen lg:pl-[270px]">
+
+        <!-- TOPBAR -->
+        <header class="sticky top-0 z-30 flex h-[88px] items-center
+             border-b border-slate-200/70 bg-white/90
+             px-5 backdrop-blur-xl sm:px-7 lg:px-9">
+
+            <div class="flex w-full items-center justify-between gap-5">
+
+                <!-- Left -->
+                <div class="flex items-center gap-4">
+
+                    <button type="button" class="flex h-11 w-11 items-center justify-center
+                   rounded-xl border border-slate-200 bg-white
+                   text-slate-500 lg:hidden" (click)="toggleSidebar()">
+                        <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="2">
+                            <path d="M4 7h16M4 12h16M4 17h16" />
+                        </svg>
+                    </button>
+
+                    <div>
+                        <p class="hidden text-[10px] font-bold uppercase
+                     tracking-[0.18em] text-slate-400 sm:block">
+                            Siyasizana Referral Programme
+                        </p>
+
+                        <p class="text-sm font-semibold text-[#172033] sm:mt-1">
+                            Management Portal
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Right -->
+                <div class="flex items-center gap-2 sm:gap-3">
+
+                    <!-- Search -->
+                    <div class="hidden w-[230px] items-center rounded-xl
+                   border border-slate-200 bg-[#fafafa]
+                   px-3 xl:flex">
+                        <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4 text-slate-400" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-3.5-3.5" />
+                        </svg>
+
+                        <input type="search" placeholder="Search referrals..." class="w-full bg-transparent px-3 py-2.5
+                     text-xs text-slate-700 outline-none
+                     placeholder:text-slate-400" />
+                    </div>
+
+
+                    <!-- Notifications -->
+                    <div class="relative">
+
+                        <button type="button" class="relative flex h-11 w-11 items-center
+                     justify-center rounded-xl border
+                     border-slate-200 bg-white text-slate-500
+                     transition hover:border-brand-accent/30
+                     hover:text-[#c18808]" (click)="toggleNotifications()">
+                            <svg viewBox="0 0 24 24" fill="none" class="h-[19px] w-[19px]" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+                                <path d="M10 21h4" />
+                            </svg>
+
+                            <span class="absolute right-2.5 top-2.5 h-2 w-2
+                       rounded-full border-2 border-white
+                       bg-brand-accent"></span>
+                        </button>
+
+
+                        @if (notificationsOpen) {
+
+                        <div class="absolute right-0 top-14 w-[320px]
+                       overflow-hidden rounded-2xl border
+                       border-slate-100 bg-white
+                       shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+
+                            <div class="border-b border-slate-100 px-5 py-4">
+                                <p class="text-sm font-bold text-[#172033]">
+                                    Notifications
+                                </p>
+                            </div>
+
+                            <div class="p-3">
+
+                                <div class="flex gap-3 rounded-xl p-3
+                           hover:bg-slate-50">
+                                    <span class="mt-1 h-2 w-2 shrink-0
+                             rounded-full bg-brand-accent"></span>
+
+                                    <div>
+                                        <p class="text-xs font-semibold
+                               text-slate-700">
+                                            Referral ready for review
+                                        </p>
+
+                                        <p class="mt-1 text-[11px] text-slate-400">
+                                            REF-0042 · 12 minutes ago
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        }
+
+                    </div>
+
+
+                    <!-- User -->
+                    <div class="relative">
+
+                        <button type="button" class="flex items-center gap-3 rounded-xl
+                     border border-transparent px-2 py-1.5
+                     transition hover:bg-slate-50" (click)="toggleProfile()">
+
+                            <div class="flex h-9 w-9 items-center justify-center
+                       rounded-full bg-brand-primary
+                       text-xs font-bold text-white">
+                                TS
+                            </div>
+
+                            <div class="hidden text-left md:block">
+                                <p class="text-xs font-semibold text-[#172033]">
+                                    ThuthukaSA Admin
+                                </p>
+
+                                <p class="mt-0.5 text-[10px] text-slate-400">
+                                    Administrator
+                                </p>
+                            </div>
+
+                            <svg viewBox="0 0 24 24" fill="none" class="hidden h-4 w-4 text-slate-400 md:block"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m7 10 5 5 5-5" />
+                            </svg>
+
+                        </button>
+
+
+                        @if (profileOpen) {
+
+                        <div class="absolute right-0 top-14 w-52
+                       rounded-2xl border border-slate-100
+                       bg-white p-2
+                       shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+
+                            <button class="profile-menu-item">
+                                My Profile
+                            </button>
+
+                            <button class="profile-menu-item">
+                                Settings
+                            </button>
+
+                            <div class="my-1 h-px bg-slate-100"></div>
+
+                            <a routerLink="/login" class="profile-menu-item !text-red-500">
+                                Sign Out
+                            </a>
+
+                        </div>
+
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ROUTED PAGE -->
+        <main class="min-h-[calc(100vh-88px)]">
+            <router-outlet></router-outlet>
+        </main>
+
+    </div>
+
+</div>

@@ -1,0 +1,57 @@
+:host {
+    display: block;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    border-radius: 0.8rem;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition:
+        background 200ms ease,
+        color 200ms ease,
+        transform 200ms ease;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.active-nav {
+    background: var(--color-brand-accent) !important;
+    color: white !important;
+    box-shadow: 0 10px 25px rgba(214, 154, 18, 0.16);
+}
+
+.profile-menu-item {
+    display: block;
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.7rem;
+    text-align: left;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
+    transition: background 180ms ease;
+}
+
+.profile-menu-item:hover {
+    background: #f8fafc;
+}

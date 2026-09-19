@@ -1,0 +1,336 @@
+:host {
+    display: block;
+}
+
+/* ---------------------------------------
+   Navigation
+--------------------------------------- */
+
+.nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+    transition: color 250ms ease;
+}
+
+.nav-link:hover {
+    color: #172033;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -10px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-brand-accent);
+    transition: right 300ms ease;
+}
+
+.nav-link:hover::after {
+    right: 0;
+}
+
+.mobile-link {
+    width: 100%;
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    transition:
+        background 200ms ease,
+        color 200ms ease;
+}
+
+.mobile-link:hover {
+    background: #f8f5ec;
+    color: var(--color-brand-accent);
+}
+
+
+/* ---------------------------------------
+   Typography
+--------------------------------------- */
+
+.section-eyebrow {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-brand-accent);
+}
+
+.section-heading {
+    max-width: 650px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    font-weight: 750;
+    letter-spacing: -0.04em;
+    color: #172033;
+}
+
+.section-description {
+    max-width: 580px;
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+
+/* ---------------------------------------
+   Rules
+--------------------------------------- */
+
+.rule-card {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.13);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 1.4rem;
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+.rule-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 138, 0, 0.25);
+    box-shadow: 0 20px 45px rgba(31, 41, 55, 0.07);
+}
+
+.rule-number {
+    display: flex;
+    width: 2.3rem;
+    height: 2.3rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.7rem;
+    background: rgba(200, 138, 0, 0.1);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-brand-accent);
+}
+
+.rule-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #172033;
+}
+
+.rule-card p {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+
+/* ---------------------------------------
+   Hero entrance
+--------------------------------------- */
+
+.hero-copy {
+    animation: heroCopyEnter 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-visual {
+    animation: heroVisualEnter 1100ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+@keyframes heroCopyEnter {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroVisualEnter {
+    from {
+        opacity: 0;
+        transform: translateX(35px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+
+/* ---------------------------------------
+   Floating cards
+--------------------------------------- */
+
+.floating-card {
+    animation: floatCard 5s ease-in-out infinite;
+}
+
+.floating-card-delay {
+    animation: floatCard 6s ease-in-out 1.2s infinite;
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* ---------------------------------------
+   Temporary hero people illustration
+
+   Remove once real approved hero image
+   is placed in assets/images.
+--------------------------------------- */
+
+.person {
+    position: relative;
+    width: 95px;
+    height: 260px;
+    margin: 0 -8px;
+}
+
+.person-head {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    width: 68px;
+    height: 68px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #70452e;
+    box-shadow: inset -8px -5px 0 rgba(0, 0, 0, 0.08);
+}
+
+.person-body {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 105px;
+    height: 185px;
+    transform: translateX(-50%);
+    border-radius: 55px 55px 20px 20px;
+}
+
+.person-one {
+    transform: translateY(20px) rotate(-4deg);
+}
+
+.person-one .person-body {
+    background: #b87818;
+}
+
+.person-two {
+    z-index: 2;
+    transform: translateY(-8px);
+}
+
+.person-two .person-body {
+    background: #264a36;
+}
+
+.person-three {
+    z-index: 3;
+    transform: translateY(8px);
+}
+
+.person-three .person-body {
+    background: #e5dfd1;
+}
+
+.person-four {
+    transform: translateY(28px) rotate(4deg);
+}
+
+.person-four .person-body {
+    background: var(--color-brand-primary);
+}
+
+
+/* ---------------------------------------
+   Step cards
+--------------------------------------- */
+
+.step-card {
+    overflow: hidden;
+}
+
+.step-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 3px;
+    background: var(--color-brand-accent);
+    transition: width 400ms ease;
+}
+
+.step-card:hover::before {
+    width: 100%;
+}
+
+
+/* ---------------------------------------
+   Accessibility
+--------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ---------------------------------------
+   Mobile
+--------------------------------------- */
+
+@media (max-width: 640px) {
+    .hero-visual {
+        min-height: 430px;
+    }
+
+    .person {
+        width: 70px;
+        height: 210px;
+    }
+
+    .person-head {
+        width: 53px;
+        height: 53px;
+    }
+
+    .person-body {
+        width: 78px;
+        height: 150px;
+    }
+}
