@@ -1,1 +1,883 @@
-<p>users works!</p>
+<div class="min-h-[calc(100vh-88px)]
+         bg-brand-light">
+
+    <div class="mx-auto max-w-[1600px]
+           px-5 py-8
+           sm:px-7
+           lg:px-9 lg:py-10">
+
+        <!-- =================================================== -->
+        <!-- HEADER -->
+        <!-- =================================================== -->
+
+        <div class="mb-8 flex flex-col
+             justify-between gap-5
+             xl:flex-row
+             xl:items-end">
+
+            <div>
+
+                <div class="mb-3 flex
+                 items-center gap-2">
+
+                    <span class="h-2 w-2
+                   rounded-full
+                   bg-brand-primary">
+                    </span>
+
+                    <span class="text-[10px]
+                   font-bold uppercase
+                   tracking-[0.2em]
+                   text-brand-primary">
+                        Access Management
+                    </span>
+
+                </div>
+
+                <h1 class="text-3xl font-bold
+                 tracking-[-0.035em]
+                 text-brand-dark
+                 sm:text-4xl">
+                    Users
+                </h1>
+
+                <p class="mt-3 max-w-2xl
+                 text-sm leading-6
+                 text-slate-500">
+                    Manage ThuthukaSA staff access,
+                    roles and permissions for the
+                    Siyasizana administration portal.
+                </p>
+
+            </div>
+
+
+            <button type="button" class="primary-action" (click)="addUser()">
+
+                <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="1.8">
+
+                    <circle cx="9" cy="8" r="3" />
+
+                    <path d="M3 20c0-4 2-7 6-7
+               2.2 0 3.8.9 4.8 2.3" />
+
+                    <path d="M18 11v8" />
+                    <path d="M14 15h8" />
+
+                </svg>
+
+                Add User
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================== -->
+        <!-- SUMMARY CARDS -->
+        <!-- =================================================== -->
+
+        <div class="mb-7 grid gap-4
+             sm:grid-cols-2
+             xl:grid-cols-4">
+
+            <!-- Total -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon
+                 summary-neutral">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="9" cy="8" r="3" />
+                        <circle cx="17" cy="9" r="2" />
+
+                        <path d="M3 20c0-4 2-7 6-7s6 3 6 7" />
+
+                        <path d="M15 14c3 0 5 2 5 5" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <p class="summary-label">
+                        Total Users
+                    </p>
+
+                    <p class="summary-value">
+                        {{ totalUsers }}
+                    </p>
+
+                    <p class="summary-description">
+                        Staff accounts
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Active -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon
+                 summary-green">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="m8 12 2.5 2.5L16 9" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <p class="summary-label">
+                        Active Users
+                    </p>
+
+                    <p class="summary-value">
+                        {{ activeUsers }}
+                    </p>
+
+                    <p class="summary-description">
+                        Portal access enabled
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Admin -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon
+                 summary-orange">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M12 3 4 6v5c0 5
+                 3 8 8 10
+                 5-2 8-5 8-10V6
+                 l-8-3Z" />
+
+                        <path d="m9 12 2 2 4-4" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <p class="summary-label">
+                        Administrators
+                    </p>
+
+                    <p class="summary-value">
+                        {{ administrators }}
+                    </p>
+
+                    <p class="summary-description">
+                        Full system access
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pending -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon
+                 summary-purple">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="M12 7v5l3 2" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <p class="summary-label">
+                        Pending Access
+                    </p>
+
+                    <p class="summary-value">
+                        {{ pendingUsers }}
+                    </p>
+
+                    <p class="summary-description">
+                        Awaiting activation
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================== -->
+        <!-- USERS CARD -->
+        <!-- =================================================== -->
+
+        <section class="overflow-hidden
+             rounded-3xl
+             border border-slate-100
+             bg-white
+             shadow-[0_18px_50px_rgba(15,23,42,0.045)]">
+
+
+            <!-- ================================================= -->
+            <!-- FILTERS -->
+            <!-- ================================================= -->
+
+            <div class="border-b
+               border-slate-100
+               px-5 py-5
+               sm:px-6">
+
+                <div class="flex flex-col gap-4
+                 xl:flex-row
+                 xl:items-center
+                 xl:justify-between">
+
+                    <!-- Search -->
+
+                    <div class="admin-search">
+
+                        <svg viewBox="0 0 24 24" fill="none" class="search-icon" stroke="currentColor"
+                            stroke-width="1.8">
+
+                            <circle cx="11" cy="11" r="7" />
+
+                            <path d="m20 20-3.5-3.5" />
+
+                        </svg>
+
+                        <input type="search" [(ngModel)]="searchTerm"
+                            placeholder="Search name, email, role or user ID..." />
+
+                    </div>
+
+
+                    <div class="flex flex-col gap-3
+                   sm:flex-row">
+
+                        <!-- Role -->
+
+                        <div class="filter-select">
+
+                            <select [(ngModel)]="selectedRole">
+
+                                @for (
+                                role of roles;
+                                track role
+                                ) {
+
+                                <option [value]="role">
+
+                                    @if (role === 'All') {
+                                    All Roles
+                                    } @else {
+                                    {{ role }}
+                                    }
+
+                                </option>
+
+                                }
+
+                            </select>
+
+                            <svg viewBox="0 0 24 24" fill="none" class="select-arrow" stroke="currentColor"
+                                stroke-width="2">
+
+                                <path d="m7 10 5 5 5-5" />
+
+                            </svg>
+
+                        </div>
+
+
+                        <!-- Status -->
+
+                        <div class="filter-select">
+
+                            <select [(ngModel)]="selectedStatus">
+
+                                @for (
+                                status of statuses;
+                                track status
+                                ) {
+
+                                <option [value]="status">
+
+                                    @if (status === 'All') {
+                                    All Statuses
+                                    } @else {
+                                    {{ status }}
+                                    }
+
+                                </option>
+
+                                }
+
+                            </select>
+
+                            <svg viewBox="0 0 24 24" fill="none" class="select-arrow" stroke="currentColor"
+                                stroke-width="2">
+
+                                <path d="m7 10 5 5 5-5" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-4 flex
+                 items-center
+                 justify-between gap-4">
+
+                    <p class="text-[11px]
+                   text-slate-400">
+
+                        Showing
+
+                        <span class="font-bold
+                     text-brand-dark">
+                            {{ filteredUsers.length }}
+                        </span>
+
+                        of
+
+                        <span class="font-bold
+                     text-brand-dark">
+                            {{ totalUsers }}
+                        </span>
+
+                        users
+
+                    </p>
+
+
+                    @if (hasActiveFilters()) {
+
+                    <button type="button" (click)="clearFilters()" class="text-[10px]
+                     font-bold
+                     text-brand-primary
+                     transition
+                     hover:text-brand-primary-dark">
+                        Clear filters
+                    </button>
+
+                    }
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- DESKTOP TABLE -->
+            <!-- ================================================= -->
+
+            @if (filteredUsers.length > 0) {
+
+            <div class="hidden
+                 overflow-x-auto
+                 lg:block">
+
+                <table class="w-full min-w-[1050px]">
+
+                    <thead>
+
+                        <tr class="border-b
+                       border-slate-100
+                       bg-slate-50/60">
+
+                            <th class="table-heading">
+                                User
+                            </th>
+
+                            <th class="table-heading">
+                                Contact
+                            </th>
+
+                            <th class="table-heading">
+                                Role
+                            </th>
+
+                            <th class="table-heading">
+                                Status
+                            </th>
+
+                            <th class="table-heading">
+                                Last Login
+                            </th>
+
+                            <th class="table-heading">
+                                Added
+                            </th>
+
+                            <th class="table-heading
+                         text-right">
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @for (
+                        user of filteredUsers;
+                        track user.id
+                        ) {
+
+                        <tr class="user-row">
+
+
+                            <!-- User -->
+
+                            <td class="table-cell">
+
+                                <div class="flex
+                             items-center gap-3">
+
+                                    <div class="user-avatar">
+                                        {{ getInitials(user) }}
+                                    </div>
+
+                                    <div>
+
+                                        <p class="text-xs
+                                 font-bold
+                                 text-brand-dark">
+                                            {{ user.firstName }}
+                                            {{ user.surname }}
+                                        </p>
+
+                                        <p class="mt-1
+                                 text-[9px]
+                                 font-bold
+                                 tracking-wide
+                                 text-slate-400">
+                                            {{ user.id }}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <!-- Contact -->
+
+                            <td class="table-cell">
+
+                                <p class="text-[11px]
+                             font-semibold
+                             text-slate-600">
+                                    {{ user.email }}
+                                </p>
+
+                                <p class="mt-1
+                             text-[9px]
+                             text-slate-400">
+                                    {{ user.mobile }}
+                                </p>
+
+                            </td>
+
+
+                            <!-- Role -->
+
+                            <td class="table-cell">
+
+                                <span [class]="
+                        'role-badge ' +
+                        getRoleClass(user.role)
+                      ">
+                                    {{ user.role }}
+                                </span>
+
+                            </td>
+
+
+                            <!-- Status -->
+
+                            <td class="table-cell">
+
+                                <span [class]="
+                        'status-badge ' +
+                        getStatusClass(user.status)
+                      ">
+
+                                    <span class="status-dot">
+                                    </span>
+
+                                    {{ user.status }}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Last Login -->
+
+                            <td class="table-cell">
+
+                                <p class="text-[11px]
+                             font-semibold
+                             text-slate-600">
+                                    {{ user.lastLogin }}
+                                </p>
+
+                            </td>
+
+
+                            <!-- Created -->
+
+                            <td class="table-cell">
+
+                                <p class="text-[11px]
+                             text-slate-500">
+                                    {{ user.createdDate }}
+                                </p>
+
+                            </td>
+
+
+                            <!-- Actions -->
+
+                            <td class="table-cell
+                           text-right">
+
+                                <div class="flex items-center
+                             justify-end gap-2">
+
+                                    <button type="button" class="edit-button" (click)="editUser(user)">
+
+                                        Edit
+
+                                    </button>
+
+
+                                    <button type="button" [class]="
+                          user.status === 'Active'
+                            ? 'status-action deactivate-action'
+                            : 'status-action activate-action'
+                        " (click)="toggleUserStatus(user)">
+
+                                        @if (user.status === 'Active') {
+                                        Disable
+                                        } @else if (user.status === 'Pending') {
+                                        Activate
+                                        } @else {
+                                        Enable
+                                        }
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- =============================================== -->
+            <!-- MOBILE / TABLET -->
+            <!-- =============================================== -->
+
+            <div class="divide-y
+                 divide-slate-100
+                 lg:hidden">
+
+                @for (
+                user of filteredUsers;
+                track user.id
+                ) {
+
+                <div class="p-5">
+
+                    <div class="flex items-start
+                       justify-between gap-4">
+
+                        <div class="flex items-center
+                         gap-3">
+
+                            <div class="user-avatar">
+                                {{ getInitials(user) }}
+                            </div>
+
+                            <div>
+
+                                <p class="text-sm
+                             font-bold
+                             text-brand-dark">
+                                    {{ user.firstName }}
+                                    {{ user.surname }}
+                                </p>
+
+                                <p class="mt-1
+                             text-[10px]
+                             font-semibold
+                             text-slate-400">
+                                    {{ user.email }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <span [class]="
+                    'status-badge ' +
+                    getStatusClass(user.status)
+                  ">
+
+                            <span class="status-dot">
+                            </span>
+
+                            {{ user.status }}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-4">
+
+                        <span [class]="
+                    'role-badge ' +
+                    getRoleClass(user.role)
+                  ">
+                            {{ user.role }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-4 grid
+                       grid-cols-2 gap-4
+                       rounded-2xl
+                       bg-slate-50 p-4">
+
+                        <div>
+
+                            <p class="mobile-label">
+                                User ID
+                            </p>
+
+                            <p class="mobile-value">
+                                {{ user.id }}
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="mobile-label">
+                                Mobile
+                            </p>
+
+                            <p class="mobile-value">
+                                {{ user.mobile }}
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="mobile-label">
+                                Last Login
+                            </p>
+
+                            <p class="mobile-value">
+                                {{ user.lastLogin }}
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="mobile-label">
+                                Added
+                            </p>
+
+                            <p class="mobile-value">
+                                {{ user.createdDate }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-4 grid
+                       grid-cols-2 gap-3">
+
+                        <button type="button" class="mobile-edit-button" (click)="editUser(user)">
+                            Edit User
+                        </button>
+
+
+                        <button type="button" [class]="
+                    user.status === 'Active'
+                      ? 'mobile-status-button mobile-disable'
+                      : 'mobile-status-button mobile-enable'
+                  " (click)="toggleUserStatus(user)">
+
+                            @if (user.status === 'Active') {
+                            Disable
+                            } @else if (user.status === 'Pending') {
+                            Activate
+                            } @else {
+                            Enable
+                            }
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                }
+
+            </div>
+
+            } @else {
+
+            <!-- =============================================== -->
+            <!-- EMPTY STATE -->
+            <!-- =============================================== -->
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" class="h-7 w-7" stroke="currentColor" stroke-width="1.7">
+
+                        <circle cx="9" cy="8" r="3" />
+
+                        <circle cx="17" cy="9" r="2" />
+
+                        <path d="M3 20c0-4 2-7 6-7s6 3 6 7" />
+
+                        <path d="M15 14c3 0 5 2 5 5" />
+
+                    </svg>
+
+                </div>
+
+                <h3 class="mt-5 text-base
+                   font-bold
+                   text-brand-dark">
+                    No users found
+                </h3>
+
+                <p class="mt-2 max-w-sm
+                   text-xs leading-5
+                   text-slate-400">
+                    No staff accounts match your
+                    current search or filters.
+                </p>
+
+                <button type="button" (click)="clearFilters()" class="mt-5 rounded-xl
+                   bg-brand-primary
+                   px-5 py-2.5
+                   text-xs font-bold
+                   text-white
+                   transition
+                   hover:bg-brand-primary-dark">
+                    Clear Filters
+                </button>
+
+            </div>
+
+            }
+
+        </section>
+
+
+        <!-- =================================================== -->
+        <!-- ACCESS NOTE -->
+        <!-- =================================================== -->
+
+        <div class="access-note">
+
+            <div class="access-note-icon">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                    <path d="M12 3 4 6v5c0 5
+               3 8 8 10
+               5-2 8-5 8-10V6
+               l-8-3Z" />
+
+                    <path d="M12 8v4" />
+
+                    <path d="M12 16h.01" />
+
+                </svg>
+
+            </div>
+
+            <div>
+
+                <p class="text-xs font-bold
+                 text-brand-dark">
+                    Administrative access
+                </p>
+
+                <p class="mt-1 text-[10px]
+                 leading-5
+                 text-slate-400">
+                    Access should be assigned according
+                    to each staff member's responsibilities.
+                    Administrator access should be limited
+                    to authorised ThuthukaSA personnel.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

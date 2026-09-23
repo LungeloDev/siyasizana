@@ -1,0 +1,503 @@
+:host {
+    display: block;
+}
+
+
+/* =========================================================
+   MY PROFILE
+   Siyasizana / ThuthukaSA
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Profile Hero
+--------------------------------------------------------- */
+
+.profile-hero {
+    box-shadow:
+        0 20px 50px rgba(247, 148, 29, 0.15);
+
+    animation:
+        profileEnter 550ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+/* ---------------------------------------------------------
+   General Cards
+--------------------------------------------------------- */
+
+.profile-card {
+    overflow: hidden;
+
+    border: 1px solid #f1f5f9;
+    border-radius: 1.5rem;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 16px 45px rgba(15, 23, 42, 0.04);
+}
+
+
+.profile-card-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    padding:
+        1.25rem 1.5rem;
+
+    border-bottom:
+        1px solid #f1f5f9;
+}
+
+
+.side-card {
+    border: 1px solid #f1f5f9;
+    border-radius: 1.5rem;
+
+    background: #ffffff;
+
+    padding: 1.5rem;
+
+    box-shadow:
+        0 14px 40px rgba(15, 23, 42, 0.04);
+}
+
+
+/* ---------------------------------------------------------
+   Typography
+--------------------------------------------------------- */
+
+.section-eyebrow {
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.16em;
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.section-title {
+    margin-top: 0.25rem;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    letter-spacing: -0.02em;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Form
+--------------------------------------------------------- */
+
+.form-label {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.profile-input {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 3.15rem;
+
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+
+    background: #f8fafc;
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease,
+        background 200ms ease;
+}
+
+
+.profile-input input {
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    padding:
+        0.9rem 2.8rem 0.9rem 2.8rem;
+
+    font-family:
+        "Woodford Pro",
+        sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.profile-input input:disabled {
+    cursor: default;
+
+    color: #64748b;
+
+    opacity: 1;
+}
+
+
+.profile-input.editable-input {
+    background: #ffffff;
+}
+
+
+.profile-input.editable-input:focus-within {
+    border-color:
+        var(--color-brand-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(247, 148, 29, 0.08);
+}
+
+
+.input-icon {
+    position: absolute;
+
+    left: 0.95rem;
+
+    width: 1rem;
+    height: 1rem;
+
+    color: #94a3b8;
+
+    pointer-events: none;
+
+    transition: color 200ms ease;
+}
+
+
+.editable-input:focus-within .input-icon {
+    color:
+        var(--color-brand-primary);
+}
+
+
+.lock-icon {
+    position: absolute;
+
+    right: 0.95rem;
+
+    width: 0.9rem;
+    height: 0.9rem;
+
+    color: #cbd5e1;
+
+    pointer-events: none;
+}
+
+
+.error-message {
+    margin-top: 0.4rem;
+
+    font-size: 0.65rem;
+    font-weight: 600;
+
+    color: #dc2626;
+}
+
+
+/* ---------------------------------------------------------
+   Customer Information
+--------------------------------------------------------- */
+
+.information-item {
+    border: 1px solid #f1f5f9;
+    border-radius: 1rem;
+
+    background: #fafafa;
+
+    padding: 1rem;
+}
+
+
+.information-label {
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+
+    color: #94a3b8;
+}
+
+
+.information-value {
+    margin-top: 0.4rem;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.product-chip {
+    display: inline-flex;
+
+    align-items: center;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.15);
+
+    border-radius: 999px;
+
+    background:
+        rgba(247, 148, 29, 0.07);
+
+    padding:
+        0.45rem 0.75rem;
+
+    font-size: 0.62rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-primary-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Eligibility
+--------------------------------------------------------- */
+
+.eligibility-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    color: #64748b;
+}
+
+
+.eligibility-check {
+    display: flex;
+
+    width: 1.35rem;
+    height: 1.35rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(22, 163, 74, 0.09);
+
+    font-size: 0.62rem;
+    font-weight: 900;
+
+    color: #16a34a;
+}
+
+
+/* ---------------------------------------------------------
+   Success Message
+--------------------------------------------------------- */
+
+.success-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.75rem;
+
+    margin-bottom: 1.25rem;
+
+    border:
+        1px solid rgba(22, 163, 74, 0.15);
+
+    border-radius: 1rem;
+
+    background:
+        rgba(22, 163, 74, 0.06);
+
+    padding:
+        0.85rem 1rem;
+
+    animation:
+        successEnter 300ms ease both;
+}
+
+
+.success-icon {
+    display: flex;
+
+    width: 2rem;
+    height: 2rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(22, 163, 74, 0.1);
+
+    color: #15803d;
+}
+
+
+.success-icon svg {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+
+/* ---------------------------------------------------------
+   Loading
+--------------------------------------------------------- */
+
+.loading-spinner {
+    width: 1rem;
+    height: 1rem;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.35);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation:
+        profileSpin 700ms linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   Animations
+--------------------------------------------------------- */
+
+@keyframes profileEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes successEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes profileSpin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    .profile-card-header {
+        padding:
+            1.1rem 1.25rem;
+    }
+
+
+    .profile-input {
+        min-height: 3rem;
+    }
+
+
+    .side-card {
+        padding: 1.25rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .profile-hero,
+    .success-message,
+    .loading-spinner {
+        animation: none;
+    }
+
+
+    .profile-input {
+        transition: none;
+    }
+
+}

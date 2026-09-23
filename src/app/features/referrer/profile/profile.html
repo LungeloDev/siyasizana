@@ -1,1 +1,921 @@
-<p>profile works!</p>
+<div class="min-h-[calc(100vh-88px)] bg-brand-light">
+
+    <div class="mx-auto max-w-7xl
+           px-5 py-8
+           sm:px-7
+           lg:px-9 lg:py-10">
+
+
+        <!-- ===================================================== -->
+        <!-- HEADER -->
+        <!-- ===================================================== -->
+
+        <div class="mb-8 flex flex-col
+             justify-between gap-5
+             sm:flex-row sm:items-end">
+
+            <div>
+
+                <div class="mb-3 flex items-center gap-2">
+
+                    <span class="h-2 w-2 rounded-full
+                   bg-brand-primary">
+                    </span>
+
+                    <span class="text-[10px] font-bold uppercase
+                   tracking-[0.2em]
+                   text-brand-primary">
+                        Account
+                    </span>
+
+                </div>
+
+                <h1 class="text-3xl font-bold
+                 tracking-[-0.035em]
+                 text-brand-dark
+                 sm:text-4xl">
+                    My Profile
+                </h1>
+
+                <p class="mt-3 max-w-2xl
+                 text-sm leading-6
+                 text-slate-500">
+                    Manage your personal details and view your
+                    Siyasizana programme information.
+                </p>
+
+            </div>
+
+
+            @if (!isEditing) {
+
+            <button type="button" (click)="enableEditing()" class="inline-flex items-center
+                 justify-center gap-2
+                 self-start rounded-xl
+                 border border-slate-200
+                 bg-white px-5 py-3
+                 text-xs font-bold
+                 text-brand-dark
+                 shadow-sm
+                 transition-all duration-200
+                 hover:-translate-y-0.5
+                 hover:border-brand-primary/30
+                 hover:text-brand-primary">
+
+                <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="1.8">
+
+                    <path d="M13.5 6.5 17.5 10.5" />
+
+                    <path d="M4 20h4l11-11a2.8 2.8
+                 0 0 0-4-4L4 16v4Z" />
+
+                </svg>
+
+                Edit Profile
+
+            </button>
+
+            }
+
+        </div>
+
+
+        <!-- ===================================================== -->
+        <!-- SAVED MESSAGE -->
+        <!-- ===================================================== -->
+
+        @if (saved) {
+
+        <div class="success-message">
+
+            <div class="success-icon">
+
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                    <path d="m8 12 2.5 2.5L16 9" stroke-linecap="round" stroke-linejoin="round" />
+
+                </svg>
+
+            </div>
+
+            <div>
+
+                <p class="text-xs font-bold text-green-800">
+                    Profile updated
+                </p>
+
+                <p class="mt-0.5 text-[11px]
+                   text-green-700/70">
+                    Your contact information has been saved.
+                </p>
+
+            </div>
+
+        </div>
+
+        }
+
+
+        <!-- ===================================================== -->
+        <!-- PROFILE HERO -->
+        <!-- ===================================================== -->
+
+        <section class="profile-hero relative mb-7
+             overflow-hidden rounded-3xl
+             bg-brand-primary
+             px-6 py-7 text-white
+             sm:px-8 sm:py-8">
+
+            <div class="absolute -right-24 -top-28
+               h-80 w-80 rounded-full
+               bg-white/[0.08]">
+            </div>
+
+            <div class="absolute -bottom-32 right-52
+               h-64 w-64 rounded-full
+               bg-white/[0.05]">
+            </div>
+
+
+            <div class="relative z-10
+               flex flex-col gap-6
+               md:flex-row
+               md:items-center
+               md:justify-between">
+
+
+                <!-- User -->
+
+                <div class="flex items-center gap-5">
+
+                    <div class="flex h-20 w-20
+                   shrink-0 items-center
+                   justify-center rounded-3xl
+                   border border-white/20
+                   bg-white/15
+                   text-2xl font-bold
+                   backdrop-blur">
+
+                        ND
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="mb-2 flex flex-wrap
+                     items-center gap-2">
+
+                            <h2 class="text-2xl font-bold
+                       tracking-[-0.03em]">
+                                Nomsa Dlamini
+                            </h2>
+
+                            <span class="inline-flex items-center
+                       gap-1 rounded-full
+                       bg-white/15
+                       px-2.5 py-1
+                       text-[9px] font-bold">
+
+                                <svg viewBox="0 0 24 24" fill="none" class="h-3 w-3" stroke="currentColor"
+                                    stroke-width="2">
+
+                                    <path d="m8 12 2.5 2.5L16 9" />
+
+                                </svg>
+
+                                VERIFIED
+
+                            </span>
+
+                        </div>
+
+
+                        <p class="text-xs text-white/65">
+                            Siyasizana Referrer
+                        </p>
+
+                        <p class="mt-1 text-[10px]
+                     text-white/45">
+                            ThuthukaSA customer since
+                            {{ memberSince }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Status -->
+
+                <div class="rounded-2xl
+                 border border-white/15
+                 bg-white/10
+                 px-5 py-4
+                 backdrop-blur">
+
+                    <div class="flex items-center gap-3">
+
+                        <span class="relative flex h-3 w-3">
+
+                            <span class="absolute inline-flex
+                       h-full w-full
+                       animate-ping
+                       rounded-full
+                       bg-white opacity-40">
+                            </span>
+
+                            <span class="relative inline-flex
+                       h-3 w-3
+                       rounded-full bg-white">
+                            </span>
+
+                        </span>
+
+                        <div>
+
+                            <p class="text-[9px] font-bold
+                       uppercase tracking-[0.15em]
+                       text-white/50">
+                                Programme Status
+                            </p>
+
+                            <p class="mt-0.5 text-xs font-bold">
+                                Active & Eligible
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- GRID -->
+        <!-- ===================================================== -->
+
+        <div class="grid items-start gap-7
+             xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.65fr)]">
+
+
+            <!-- =================================================== -->
+            <!-- LEFT -->
+            <!-- =================================================== -->
+
+            <div class="space-y-7">
+
+
+                <!-- PERSONAL DETAILS -->
+
+                <section class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <p class="section-eyebrow">
+                                Personal Information
+                            </p>
+
+                            <h2 class="section-title">
+                                Personal Details
+                            </h2>
+
+                        </div>
+
+
+                        @if (isEditing) {
+
+                        <span class="rounded-full
+                       bg-brand-primary/10
+                       px-3 py-1.5
+                       text-[9px] font-bold
+                       text-brand-primary">
+                            EDITING
+                        </span>
+
+                        }
+
+                    </div>
+
+
+                    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="p-6 sm:p-7">
+
+
+                        <div class="grid gap-5
+                     sm:grid-cols-2">
+
+
+                            <!-- First name -->
+
+                            <div>
+
+                                <label class="form-label">
+                                    First Name
+                                </label>
+
+                                <div class="profile-input">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <circle cx="12" cy="8" r="4" />
+
+                                        <path d="M4 21a8 8 0 0 1
+                         16 0" />
+
+                                    </svg>
+
+                                    <input type="text" formControlName="firstName" />
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="lock-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <rect x="5" y="10" width="14" height="10" rx="2" />
+
+                                        <path d="M8 10V7a4 4
+                         0 0 1 8 0v3" />
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Surname -->
+
+                            <div>
+
+                                <label class="form-label">
+                                    Surname
+                                </label>
+
+                                <div class="profile-input">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <circle cx="12" cy="8" r="4" />
+
+                                        <path d="M4 21a8 8 0 0 1
+                         16 0" />
+
+                                    </svg>
+
+                                    <input type="text" formControlName="surname" />
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="lock-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <rect x="5" y="10" width="14" height="10" rx="2" />
+
+                                        <path d="M8 10V7a4 4
+                         0 0 1 8 0v3" />
+
+                                    </svg>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Mobile -->
+
+                            <div>
+
+                                <label class="form-label">
+                                    Mobile Number
+                                </label>
+
+                                <div class="profile-input" [class.editable-input]="isEditing">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <path d="M6.5 3h3l1.5 5-2
+                         1.5a15 15 0 0 0
+                         5.5 5.5l1.5-2
+                         5 1.5v3A2.5 2.5
+                         0 0 1 18.5 20
+                         C10.5 20 4 13.5
+                         4 5.5A2.5 2.5
+                         0 0 1 6.5 3Z" />
+
+                                    </svg>
+
+                                    <input type="tel" formControlName="mobile" />
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Email -->
+
+                            <div>
+
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <div class="profile-input" [class.editable-input]="isEditing">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+
+                                        <rect x="3" y="5" width="18" height="14" rx="2" />
+
+                                        <path d="m4 7 8 6 8-6" />
+
+                                    </svg>
+
+                                    <input type="email" formControlName="email" />
+
+                                </div>
+
+
+                                @if (
+                                profileForm.get('email')?.invalid &&
+                                profileForm.get('email')?.touched
+                                ) {
+
+                                <p class="error-message">
+                                    Please enter a valid email address.
+                                </p>
+
+                                }
+
+                            </div>
+
+                        </div>
+
+
+                        @if (isEditing) {
+
+                        <div class="mt-7 flex flex-col-reverse
+                       gap-3 border-t
+                       border-slate-100 pt-6
+                       sm:flex-row sm:justify-end">
+
+                            <button type="button" (click)="cancelEditing()" class="rounded-xl
+                         border border-slate-200
+                         bg-white px-5 py-3
+                         text-xs font-bold
+                         text-slate-600
+                         transition
+                         hover:bg-slate-50">
+
+                                Cancel
+
+                            </button>
+
+
+                            <button type="submit" [disabled]="isSaving" class="inline-flex min-w-[140px]
+                         items-center justify-center
+                         gap-2 rounded-xl
+                         bg-brand-primary
+                         px-5 py-3
+                         text-xs font-bold
+                         text-white
+                         shadow-[0_10px_24px_rgba(247,148,29,0.18)]
+                         transition
+                         hover:bg-brand-primary-dark
+                         disabled:cursor-not-allowed
+                         disabled:opacity-60">
+
+                                @if (isSaving) {
+
+                                <span class="loading-spinner">
+                                </span>
+
+                                Saving...
+
+                                } @else {
+
+                                Save Changes
+
+                                }
+
+                            </button>
+
+                        </div>
+
+                        }
+
+                    </form>
+
+                </section>
+
+
+                <!-- CUSTOMER DETAILS -->
+
+                <section class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <p class="section-eyebrow">
+                                ThuthukaSA
+                            </p>
+
+                            <h2 class="section-title">
+                                Customer Information
+                            </h2>
+
+                        </div>
+
+
+                        <div class="flex h-10 w-10
+                     items-center justify-center
+                     rounded-xl
+                     bg-green-50
+                     text-green-600">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <path d="M12 3 4 6v5c0 5
+                     3 8 8 10
+                     5-2 8-5 8-10V6
+                     l-8-3Z" />
+
+                                <path d="m9 12 2 2 4-4" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-6 sm:p-7">
+
+                        <div class="grid gap-5
+                     sm:grid-cols-2">
+
+                            <div class="information-item">
+
+                                <p class="information-label">
+                                    Customer Number
+                                </p>
+
+                                <p class="information-value">
+                                    {{ customerNumber }}
+                                </p>
+
+                            </div>
+
+
+                            <div class="information-item">
+
+                                <p class="information-label">
+                                    Customer Status
+                                </p>
+
+                                <div class="mt-2 inline-flex
+                         items-center gap-2">
+
+                                    <span class="h-2 w-2
+                           rounded-full
+                           bg-green-500">
+                                    </span>
+
+                                    <span class="text-xs font-bold
+                           text-green-700">
+                                        Verified Customer
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="information-item sm:col-span-2">
+
+                                <p class="information-label">
+                                    Qualifying Products
+                                </p>
+
+                                <div class="mt-3 flex flex-wrap gap-2">
+
+                                    @for (
+                                    product of qualifyingProducts;
+                                    track product
+                                    ) {
+
+                                    <span class="product-chip">
+                                        {{ product }}
+                                    </span>
+
+                                    }
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================== -->
+            <!-- RIGHT SIDE -->
+            <!-- =================================================== -->
+
+            <aside class="space-y-5">
+
+
+                <!-- REFERRAL CODE -->
+
+                <div class="relative overflow-hidden
+                 rounded-3xl
+                 bg-brand-charcoal
+                 p-6 text-white">
+
+                    <div class="absolute -right-14 -top-14
+                   h-40 w-40 rounded-full
+                   bg-brand-primary/15">
+                    </div>
+
+
+                    <div class="relative z-10">
+
+                        <div class="flex h-11 w-11
+                     items-center justify-center
+                     rounded-xl
+                     bg-brand-primary
+                     text-white">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <path d="M10 13a5 5 0 0 0
+                     7.5.5l2-2a5 5 0 0 0
+                     -7-7l-1.1 1.1" />
+
+                                <path d="M14 11a5 5 0 0 0
+                     -7.5-.5l-2 2a5 5 0 0 0
+                     7 7l1.1-1.1" />
+
+                            </svg>
+
+                        </div>
+
+
+                        <p class="mt-5 text-[9px] font-bold
+                     uppercase tracking-[0.18em]
+                     text-brand-primary">
+                            Your Referral Code
+                        </p>
+
+
+                        <p class="mt-2 text-3xl font-bold
+                     tracking-[0.08em]">
+                            {{ referralCode }}
+                        </p>
+
+
+                        <p class="mt-3 text-[11px]
+                     leading-5 text-white/50">
+                            Use your unique code when sharing the
+                            Siyasizana programme with people you know.
+                        </p>
+
+
+                        <button type="button" (click)="copyReferralCode()" class="mt-5 flex w-full
+                     items-center justify-center
+                     gap-2 rounded-xl
+                     bg-white/10
+                     px-4 py-3
+                     text-xs font-bold
+                     transition
+                     hover:bg-white/15">
+
+                            @if (copied) {
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="2">
+
+                                <path d="m7 12 3 3 7-7" />
+
+                            </svg>
+
+                            Copied!
+
+                            } @else {
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <rect x="8" y="8" width="11" height="11" rx="2" />
+
+                                <path d="M16 8V5a2 2
+                       0 0 0-2-2H5
+                       a2 2 0 0 0-2 2v9
+                       a2 2 0 0 0 2 2h3" />
+
+                            </svg>
+
+                            Copy Referral Code
+
+                            }
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ELIGIBILITY -->
+
+                <div class="side-card">
+
+                    <div class="flex items-start gap-3">
+
+                        <div class="flex h-10 w-10
+                     shrink-0 items-center
+                     justify-center
+                     rounded-xl
+                     bg-green-50
+                     text-green-600">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <circle cx="12" cy="12" r="9" />
+
+                                <path d="m8 12 2.5 2.5L16 9" />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="text-xs font-bold text-brand-dark">
+                                Programme Eligible
+                            </p>
+
+                            <p class="mt-1 text-[11px]
+                       leading-5 text-slate-500">
+                                Your customer profile is currently
+                                eligible to participate in the
+                                Siyasizana Referral Programme.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-5 space-y-3
+                   border-t border-slate-100 pt-5">
+
+                        <div class="eligibility-row">
+
+                            <span>
+                                Existing customer
+                            </span>
+
+                            <span class="eligibility-check">
+                                ✓
+                            </span>
+
+                        </div>
+
+
+                        <div class="eligibility-row">
+
+                            <span>
+                                Policy in force
+                            </span>
+
+                            <span class="eligibility-check">
+                                ✓
+                            </span>
+
+                        </div>
+
+
+                        <div class="eligibility-row">
+
+                            <span>
+                                Premiums up to date
+                            </span>
+
+                            <span class="eligibility-check">
+                                ✓
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT INFORMATION -->
+
+                <div class="side-card">
+
+                    <div class="flex items-center
+                   justify-between gap-3">
+
+                        <div>
+
+                            <p class="section-eyebrow">
+                                Rewards
+                            </p>
+
+                            <h3 class="mt-1 text-sm font-bold
+                       text-brand-dark">
+                                Payment Information
+                            </h3>
+
+                        </div>
+
+
+                        <div class="flex h-10 w-10
+                     items-center justify-center
+                     rounded-xl
+                     bg-brand-primary/10
+                     text-brand-primary">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <rect x="3" y="6" width="18" height="13" rx="2" />
+
+                                <path d="M3 10h18" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-5 rounded-2xl
+                   bg-slate-50 p-4">
+
+                        <div class="flex items-center
+                     justify-between">
+
+                            <div>
+
+                                <p class="text-[9px] font-bold
+                         uppercase tracking-[0.1em]
+                         text-slate-400">
+                                    Bank Account
+                                </p>
+
+                                <p class="mt-1 text-xs font-bold
+                         text-brand-dark">
+                                    Account on file
+                                </p>
+
+                            </div>
+
+
+                            <span class="rounded-full
+                       bg-green-50
+                       px-2.5 py-1
+                       text-[9px] font-bold
+                       text-green-700">
+                                VERIFIED
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="mt-4 text-[10px]
+                   leading-5 text-slate-400">
+                        For your security, banking details are not
+                        displayed here. Referral rewards are paid to
+                        the account ThuthukaSA has on record from
+                        your FICA information.
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</div>

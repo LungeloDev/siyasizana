@@ -2,31 +2,45 @@
     display: block;
 }
 
-/* ---------------------------------------
+/* =========================================================
+   THUTHUKASA LANDING PAGE
+   Brand direction:
+   Orange / Charcoal / White / Light Grey
+========================================================= */
+
+
+/* ---------------------------------------------------------
    Navigation
---------------------------------------- */
+--------------------------------------------------------- */
 
 .nav-link {
     position: relative;
+
     font-size: 0.875rem;
     font-weight: 500;
-    color: #475569;
+
+    color: #525252;
+
     transition: color 250ms ease;
 }
 
 .nav-link:hover {
-    color: #172033;
+    color: var(--color-brand-dark);
 }
 
 .nav-link::after {
     content: '';
+
     position: absolute;
     left: 0;
     right: 100%;
     bottom: -10px;
+
     height: 2px;
     border-radius: 999px;
-    background: var(--color-brand-accent);
+
+    background: var(--color-brand-primary);
+
     transition: right 300ms ease;
 }
 
@@ -34,156 +48,219 @@
     right: 0;
 }
 
+
 .mobile-link {
     width: 100%;
+
     border-radius: 0.75rem;
+
     padding: 0.85rem 1rem;
+
     text-align: left;
+
     font-size: 0.9rem;
     font-weight: 600;
-    color: #475569;
+
+    color: #525252;
+
     transition:
         background 200ms ease,
         color 200ms ease;
 }
 
 .mobile-link:hover {
-    background: #f8f5ec;
-    color: var(--color-brand-accent);
+    background: rgba(247, 148, 29, 0.08);
+
+    color: var(--color-brand-primary);
 }
 
 
-/* ---------------------------------------
+/* ---------------------------------------------------------
    Typography
---------------------------------------- */
+--------------------------------------------------------- */
 
 .section-eyebrow {
     display: inline-block;
+
     margin-bottom: 0.8rem;
+
     font-size: 0.7rem;
     font-weight: 800;
+
     letter-spacing: 0.18em;
+
     text-transform: uppercase;
-    color: var(--color-brand-accent);
+
+    color: var(--color-brand-primary);
 }
+
 
 .section-heading {
     max-width: 650px;
+
     font-size: clamp(2rem, 4vw, 3.2rem);
+
     line-height: 1.08;
+
     font-weight: 750;
+
     letter-spacing: -0.04em;
-    color: #172033;
+
+    color: var(--color-brand-dark);
 }
+
 
 .section-description {
     max-width: 580px;
+
     margin-top: 1rem;
+
     font-size: 1rem;
+
     line-height: 1.8;
-    color: #64748b;
+
+    color: #6b7280;
 }
 
 
-/* ---------------------------------------
-   Rules
---------------------------------------- */
+/* ---------------------------------------------------------
+   Programme Rule Cards
+--------------------------------------------------------- */
 
 .rule-card {
     display: flex;
+
     gap: 1rem;
-    border: 1px solid rgba(148, 163, 184, 0.13);
+
+    border: 1px solid #eeeeee;
+
     border-radius: 1.25rem;
-    background: rgba(255, 255, 255, 0.82);
+
+    background: #ffffff;
+
     padding: 1.4rem;
+
     transition:
         transform 300ms ease,
         box-shadow 300ms ease,
         border-color 300ms ease;
 }
 
+
 .rule-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(200, 138, 0, 0.25);
-    box-shadow: 0 20px 45px rgba(31, 41, 55, 0.07);
+
+    border-color: rgba(247, 148, 29, 0.3);
+
+    box-shadow:
+        0 20px 45px rgba(36, 36, 36, 0.08);
 }
+
 
 .rule-number {
     display: flex;
+
     width: 2.3rem;
     height: 2.3rem;
+
     flex: 0 0 auto;
+
     align-items: center;
     justify-content: center;
+
     border-radius: 0.7rem;
-    background: rgba(200, 138, 0, 0.1);
+
+    background: rgba(247, 148, 29, 0.1);
+
     font-size: 0.7rem;
     font-weight: 800;
-    color: var(--color-brand-accent);
+
+    color: var(--color-brand-primary);
 }
+
 
 .rule-card h3 {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #172033;
+
+    color: var(--color-brand-dark);
 }
+
 
 .rule-card p {
     margin-top: 0.35rem;
+
     font-size: 0.8rem;
+
     line-height: 1.6;
-    color: #64748b;
+
+    color: #6b7280;
 }
 
 
-/* ---------------------------------------
-   Hero entrance
---------------------------------------- */
+/* ---------------------------------------------------------
+   Hero Entrance Animations
+--------------------------------------------------------- */
 
 .hero-copy {
-    animation: heroCopyEnter 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation:
+        heroCopyEnter 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+
 .hero-visual {
-    animation: heroVisualEnter 1100ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+    animation:
+        heroVisualEnter 1100ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
 }
+
 
 @keyframes heroCopyEnter {
     from {
         opacity: 0;
+
         transform: translateY(28px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 }
 
+
 @keyframes heroVisualEnter {
     from {
         opacity: 0;
-        transform: translateX(35px) scale(0.97);
+
+        transform:
+            translateX(35px) scale(0.97);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0) scale(1);
+
+        transform:
+            translateX(0) scale(1);
     }
 }
 
 
-/* ---------------------------------------
-   Floating cards
---------------------------------------- */
+/* ---------------------------------------------------------
+   Floating Hero Cards
+--------------------------------------------------------- */
 
 .floating-card {
-    animation: floatCard 5s ease-in-out infinite;
+    animation:
+        floatCard 5s ease-in-out infinite;
 }
 
+
 .floating-card-delay {
-    animation: floatCard 6s ease-in-out 1.2s infinite;
+    animation:
+        floatCard 6s ease-in-out 1.2s infinite;
 }
+
 
 @keyframes floatCard {
 
@@ -198,104 +275,169 @@
 }
 
 
-/* ---------------------------------------
-   Temporary hero people illustration
+/* ---------------------------------------------------------
+   Temporary Hero People Illustration
 
-   Remove once real approved hero image
-   is placed in assets/images.
---------------------------------------- */
+   These colours now follow the ThuthukaSA palette.
+   You can remove this whole section once only the
+   real hero image is being displayed.
+--------------------------------------------------------- */
 
 .person {
     position: relative;
+
     width: 95px;
     height: 260px;
+
     margin: 0 -8px;
 }
 
+
 .person-head {
     position: absolute;
+
     top: 15px;
     left: 50%;
+
     width: 68px;
     height: 68px;
+
     transform: translateX(-50%);
+
     border-radius: 50%;
+
     background: #70452e;
-    box-shadow: inset -8px -5px 0 rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        inset -8px -5px 0 rgba(0, 0, 0, 0.08);
 }
+
 
 .person-body {
     position: absolute;
+
     left: 50%;
     bottom: 0;
+
     width: 105px;
     height: 185px;
+
     transform: translateX(-50%);
-    border-radius: 55px 55px 20px 20px;
+
+    border-radius:
+        55px 55px 20px 20px;
 }
+
 
 .person-one {
-    transform: translateY(20px) rotate(-4deg);
+    transform:
+        translateY(20px) rotate(-4deg);
 }
 
+
 .person-one .person-body {
-    background: #b87818;
+    background:
+        var(--color-brand-primary);
 }
+
 
 .person-two {
     z-index: 2;
-    transform: translateY(-8px);
+
+    transform:
+        translateY(-8px);
 }
 
+
 .person-two .person-body {
-    background: #264a36;
+    background:
+        var(--color-brand-dark);
 }
+
 
 .person-three {
     z-index: 3;
-    transform: translateY(8px);
+
+    transform:
+        translateY(8px);
 }
+
 
 .person-three .person-body {
-    background: #e5dfd1;
+    background: #f1f1f1;
 }
+
 
 .person-four {
-    transform: translateY(28px) rotate(4deg);
+    transform:
+        translateY(28px) rotate(4deg);
 }
+
 
 .person-four .person-body {
-    background: var(--color-brand-primary);
+    background:
+        var(--color-brand-primary-dark);
 }
 
 
-/* ---------------------------------------
-   Step cards
---------------------------------------- */
+/* ---------------------------------------------------------
+   How It Works Step Cards
+--------------------------------------------------------- */
 
 .step-card {
     overflow: hidden;
 }
 
+
 .step-card::before {
     content: '';
+
     position: absolute;
+
     left: 0;
     top: 0;
+
     width: 0;
     height: 3px;
-    background: var(--color-brand-accent);
-    transition: width 400ms ease;
+
+    background:
+        var(--color-brand-primary);
+
+    transition:
+        width 400ms ease;
 }
+
 
 .step-card:hover::before {
     width: 100%;
 }
 
 
-/* ---------------------------------------
+/* ---------------------------------------------------------
+   Generic Brand Helpers
+--------------------------------------------------------- */
+
+.brand-orange-shadow {
+    box-shadow:
+        0 14px 35px rgba(247, 148, 29, 0.2);
+}
+
+
+.brand-orange-shadow:hover {
+    box-shadow:
+        0 18px 45px rgba(247, 148, 29, 0.28);
+}
+
+
+.brand-soft-background {
+    background:
+        rgba(247, 148, 29, 0.06);
+}
+
+
+/* ---------------------------------------------------------
    Accessibility
---------------------------------------- */
+--------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -303,16 +445,22 @@
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
     }
 }
 
 
-/* ---------------------------------------
+/* ---------------------------------------------------------
    Mobile
---------------------------------------- */
+--------------------------------------------------------- */
 
 @media (max-width: 640px) {
     .hero-visual {

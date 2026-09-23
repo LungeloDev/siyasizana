@@ -1,0 +1,841 @@
+:host {
+    display: block;
+}
+
+
+/* =========================================================
+   ADMIN PRODUCTS
+   Siyasizana / ThuthukaSA
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Primary Action
+--------------------------------------------------------- */
+
+.primary-action {
+    display: inline-flex;
+
+    min-height: 2.8rem;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    border:
+        1px solid var(--color-brand-primary);
+
+    border-radius: 0.75rem;
+
+    background:
+        var(--color-brand-primary);
+
+    padding:
+        0.7rem 1.1rem;
+
+    color: #ffffff;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 24px rgba(247, 148, 29, 0.16);
+
+    transition:
+        background 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.primary-action:hover {
+    background:
+        var(--color-brand-primary-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------
+   Summary Cards
+--------------------------------------------------------- */
+
+.summary-card {
+    display: flex;
+
+    min-height: 7.4rem;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1.2rem;
+
+    border:
+        1px solid #f1f5f9;
+
+    border-radius: 1.25rem;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.035);
+
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+
+    animation:
+        cardEnter 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+.summary-card:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(247, 148, 29, 0.12);
+
+    box-shadow:
+        0 16px 38px rgba(15, 23, 42, 0.055);
+}
+
+
+.summary-card:nth-child(2) {
+    animation-delay: 50ms;
+}
+
+
+.summary-card:nth-child(3) {
+    animation-delay: 100ms;
+}
+
+
+.summary-card:nth-child(4) {
+    animation-delay: 150ms;
+}
+
+
+.summary-icon {
+    display: flex;
+
+    width: 2.9rem;
+    height: 2.9rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.9rem;
+}
+
+
+.summary-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+.summary-neutral {
+    background: #f1f5f9;
+
+    color: #64748b;
+}
+
+
+.summary-blue {
+    background:
+        rgba(59, 130, 246, 0.08);
+
+    color: #2563eb;
+}
+
+
+.summary-orange {
+    background:
+        rgba(247, 148, 29, 0.1);
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.summary-green {
+    background:
+        rgba(22, 163, 74, 0.08);
+
+    color: #15803d;
+}
+
+
+.summary-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    color: #94a3b8;
+}
+
+
+.summary-value {
+    margin-top: 0.2rem;
+
+    font-size: 1.45rem;
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.summary-description {
+    margin-top: 0.2rem;
+
+    font-size: 0.6rem;
+
+    color: #94a3b8;
+}
+
+
+/* ---------------------------------------------------------
+   Search
+--------------------------------------------------------- */
+
+.admin-search {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+    max-width: 28rem;
+
+    align-items: center;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius: 0.8rem;
+
+    background: #fafafa;
+
+    transition:
+        border-color 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.admin-search:focus-within {
+    border-color:
+        rgba(247, 148, 29, 0.5);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(247, 148, 29, 0.06);
+}
+
+
+.admin-search input {
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    padding:
+        0.8rem 0.9rem 0.8rem 2.6rem;
+
+    font-family:
+        "Woodford Pro",
+        sans-serif;
+
+    font-size: 0.72rem;
+
+    color: #334155;
+}
+
+
+.admin-search input::placeholder {
+    color: #94a3b8;
+}
+
+
+.search-icon {
+    position: absolute;
+
+    left: 0.9rem;
+
+    width: 1rem;
+    height: 1rem;
+
+    color: #94a3b8;
+}
+
+
+/* ---------------------------------------------------------
+   Filters
+--------------------------------------------------------- */
+
+.filter-select {
+    position: relative;
+
+    min-width: 11rem;
+}
+
+
+.filter-select select {
+    width: 100%;
+
+    appearance: none;
+
+    cursor: pointer;
+
+    border:
+        1px solid #e2e8f0;
+
+    outline: none;
+
+    border-radius: 0.8rem;
+
+    background: #ffffff;
+
+    padding:
+        0.8rem 2.4rem 0.8rem 0.9rem;
+
+    font-family:
+        "Woodford Pro",
+        sans-serif;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    color: #475569;
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.filter-select select:focus {
+    border-color:
+        rgba(247, 148, 29, 0.5);
+
+    box-shadow:
+        0 0 0 4px rgba(247, 148, 29, 0.06);
+}
+
+
+.select-arrow {
+    position: absolute;
+
+    top: 50%;
+    right: 0.8rem;
+
+    width: 0.9rem;
+    height: 0.9rem;
+
+    pointer-events: none;
+
+    color: #94a3b8;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.clear-button {
+    padding:
+        0.65rem 0.5rem;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-primary);
+
+    transition:
+        color 180ms ease;
+}
+
+
+.clear-button:hover {
+    color:
+        var(--color-brand-primary-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Product Card
+--------------------------------------------------------- */
+
+.product-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 1.4rem;
+
+    border:
+        1px solid #f1f5f9;
+
+    border-radius: 1.4rem;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.035);
+
+    transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+
+    animation:
+        cardEnter 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+.product-card::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        var(--color-brand-primary);
+
+    opacity: 0;
+
+    transition:
+        opacity 180ms ease;
+}
+
+
+.product-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(247, 148, 29, 0.13);
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Product Icon
+--------------------------------------------------------- */
+
+.product-icon {
+    display: flex;
+
+    width: 3rem;
+    height: 3rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.12);
+
+    border-radius: 0.95rem;
+
+    background:
+        rgba(247, 148, 29, 0.07);
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.product-icon svg {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+
+.product-id {
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+/* ---------------------------------------------------------
+   Status
+--------------------------------------------------------- */
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    border-radius: 999px;
+
+    padding:
+        0.38rem 0.62rem;
+
+    white-space: nowrap;
+
+    font-size: 0.57rem;
+    font-weight: 800;
+}
+
+
+.status-dot {
+    width: 0.32rem;
+    height: 0.32rem;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+.status-active {
+    background:
+        rgba(22, 163, 74, 0.08);
+
+    color: #15803d;
+}
+
+
+.status-inactive {
+    background: #f1f5f9;
+
+    color: #64748b;
+}
+
+
+/* ---------------------------------------------------------
+   Reward
+--------------------------------------------------------- */
+
+.reward-panel {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 1.3rem;
+
+    padding:
+        0.9rem 1rem;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.1);
+
+    border-radius: 0.9rem;
+
+    background:
+        rgba(247, 148, 29, 0.035);
+}
+
+
+/* ---------------------------------------------------------
+   Metrics
+--------------------------------------------------------- */
+
+.metric-card {
+    padding:
+        0.75rem 0.65rem;
+
+    border-radius: 0.8rem;
+
+    background: #f8fafc;
+
+    text-align: center;
+}
+
+
+.metric-label {
+    font-size: 0.53rem;
+    font-weight: 700;
+
+    color: #94a3b8;
+}
+
+
+.metric-number {
+    margin-top: 0.3rem;
+
+    font-size: 0.85rem;
+    font-weight: 800;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Conversion
+--------------------------------------------------------- */
+
+.conversion-track {
+    width: 100%;
+    height: 0.35rem;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #e2e8f0;
+}
+
+
+.conversion-fill {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        var(--color-brand-primary);
+
+    transition:
+        width 300ms ease;
+}
+
+
+/* ---------------------------------------------------------
+   Product Footer
+--------------------------------------------------------- */
+
+.product-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-top: 1.3rem;
+
+    padding-top: 1rem;
+
+    border-top:
+        1px solid #f1f5f9;
+}
+
+
+.product-footer p {
+    max-width: 15rem;
+
+    line-height: 1.5;
+}
+
+
+.edit-button {
+    display: inline-flex;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.35rem;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius: 0.65rem;
+
+    background: #ffffff;
+
+    padding:
+        0.5rem 0.75rem;
+
+    font-size: 0.62rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+
+    transition:
+        color 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+}
+
+
+.edit-button:hover {
+    border-color:
+        rgba(247, 148, 29, 0.25);
+
+    background:
+        rgba(247, 148, 29, 0.04);
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+/* ---------------------------------------------------------
+   Empty State
+--------------------------------------------------------- */
+
+.empty-state {
+    display: flex;
+
+    min-height: 24rem;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #f1f5f9;
+
+    border-radius: 1.4rem;
+
+    background: #ffffff;
+
+    padding: 3rem 1.5rem;
+
+    text-align: center;
+}
+
+
+.empty-icon {
+    display: flex;
+
+    width: 4rem;
+    height: 4rem;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1rem;
+
+    background: #f1f5f9;
+
+    color: #94a3b8;
+}
+
+
+/* ---------------------------------------------------------
+   Animation
+--------------------------------------------------------- */
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 639px) {
+
+    .summary-card {
+        min-height: 6.7rem;
+
+        padding: 1rem;
+    }
+
+
+    .summary-value {
+        font-size: 1.3rem;
+    }
+
+
+    .admin-search {
+        max-width: none;
+    }
+
+
+    .filter-select {
+        width: 100%;
+    }
+
+
+    .product-card {
+        padding: 1.15rem;
+    }
+
+
+    .product-footer {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .edit-button {
+        width: 100%;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .summary-card,
+    .product-card {
+        animation: none;
+    }
+
+
+    .summary-card,
+    .product-card,
+    .primary-action,
+    .edit-button,
+    .conversion-fill {
+        transition: none;
+    }
+
+
+    .summary-card:hover,
+    .product-card:hover,
+    .primary-action:hover {
+        transform: none;
+    }
+
+}

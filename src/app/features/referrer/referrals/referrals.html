@@ -1,1 +1,647 @@
-<p>referrals works!</p>
+<div class="min-h-[calc(100vh-88px)] bg-brand-light">
+
+    <div class="mx-auto max-w-7xl px-5 py-8 sm:px-7 lg:px-9 lg:py-10">
+
+        <!-- ====================================================== -->
+        <!-- HEADER -->
+        <!-- ====================================================== -->
+
+        <div class="mb-8 flex flex-col justify-between gap-5
+             sm:flex-row sm:items-end">
+
+            <div>
+
+                <div class="mb-3 flex items-center gap-2">
+
+                    <span class="h-2 w-2 rounded-full bg-brand-primary">
+                    </span>
+
+                    <span class="text-[10px] font-bold uppercase
+                   tracking-[0.2em] text-brand-primary">
+                        Referral Activity
+                    </span>
+
+                </div>
+
+                <h1 class="text-3xl font-bold tracking-[-0.035em]
+                 text-brand-dark sm:text-4xl">
+                    My Referrals
+                </h1>
+
+                <p class="mt-3 max-w-2xl text-sm
+                 leading-6 text-slate-500">
+                    Track the progress of the people you've referred
+                    through the Siyasizana Referral Programme.
+                </p>
+
+            </div>
+
+
+            <a routerLink="/referrer/new" class="group inline-flex items-center justify-center
+               gap-2 self-start rounded-xl
+               bg-brand-primary px-5 py-3
+               text-xs font-bold text-white
+               shadow-[0_12px_28px_rgba(247,148,29,0.20)]
+               transition-all duration-300
+               hover:-translate-y-0.5
+               hover:bg-brand-primary-dark">
+
+                <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="2">
+
+                    <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+
+                </svg>
+
+                Make a Referral
+
+            </a>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- SUMMARY -->
+        <!-- ====================================================== -->
+
+        <div class="mb-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+
+            <!-- Total -->
+            <div class="summary-card">
+
+                <div class="summary-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M5 6h14M5 12h14M5 18h9" />
+                        <circle cx="3" cy="6" r=".5" />
+                        <circle cx="3" cy="12" r=".5" />
+                        <circle cx="3" cy="18" r=".5" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+                    <p class="summary-label">
+                        Total Referrals
+                    </p>
+
+                    <p class="summary-value">
+                        {{ totalReferrals }}
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- In progress -->
+            <div class="summary-card">
+
+                <div class="summary-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+                    <p class="summary-label">
+                        In Progress
+                    </p>
+
+                    <p class="summary-value">
+                        {{ inProgressCount }}
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Successful -->
+            <div class="summary-card">
+
+                <div class="summary-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="m8 12 2.5 2.5L16 9" stroke-linecap="round" stroke-linejoin="round" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+                    <p class="summary-label">
+                        Successful
+                    </p>
+
+                    <p class="summary-value">
+                        {{ successfulCount }}
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Rewards -->
+            <div class="summary-card">
+
+                <div class="summary-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M20 12v8H4v-8" />
+                        <path d="M12 20V8" />
+                        <path d="M3 8h18v4H3z" />
+
+                    </svg>
+
+                </div>
+
+                <div>
+                    <p class="summary-label">
+                        Rewards Paid
+                    </p>
+
+                    <p class="summary-value">
+                        R{{ totalRewards.toLocaleString() }}
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- MAIN CARD -->
+        <!-- ====================================================== -->
+
+        <section class="overflow-hidden rounded-3xl
+             border border-slate-100 bg-white
+             shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+
+
+            <!-- ---------------------------------------------------- -->
+            <!-- SEARCH -->
+            <!-- ---------------------------------------------------- -->
+
+            <div class="border-b border-slate-100
+               px-5 py-5 sm:px-7">
+
+                <div class="flex flex-col gap-4
+                 lg:flex-row lg:items-center
+                 lg:justify-between">
+
+                    <!-- Search -->
+
+                    <div class="referral-search">
+
+                        <svg viewBox="0 0 24 24" fill="none" class="search-icon" stroke="currentColor"
+                            stroke-width="1.8">
+
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m20 20-4-4" />
+
+                        </svg>
+
+                        <input type="text" [(ngModel)]="searchTerm"
+                            placeholder="Search by name, reference or product..." />
+
+                    </div>
+
+
+                    <!-- Status filters -->
+
+                    <div class="flex max-w-full gap-2 overflow-x-auto
+                   pb-1 lg:pb-0">
+
+                        @for (status of statuses; track status) {
+
+                        <button type="button" (click)="setStatus(status)" class="filter-button"
+                            [class.filter-active]="selectedStatus === status">
+
+                            {{ status }}
+
+                        </button>
+
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ---------------------------------------------------- -->
+            <!-- RESULTS INFO -->
+            <!-- ---------------------------------------------------- -->
+
+            <div class="flex items-center justify-between
+               border-b border-slate-100
+               px-5 py-4 sm:px-7">
+
+                <p class="text-xs text-slate-400">
+
+                    Showing
+
+                    <span class="font-bold text-brand-dark">
+                        {{ filteredReferrals.length }}
+                    </span>
+
+                    of
+
+                    <span class="font-bold text-brand-dark">
+                        {{ totalReferrals }}
+                    </span>
+
+                    referrals
+
+                </p>
+
+
+                @if (
+                searchTerm ||
+                selectedStatus !== 'All'
+                ) {
+
+                <button type="button" (click)="clearFilters()" class="text-[11px] font-bold
+                   text-brand-primary transition
+                   hover:text-brand-primary-dark">
+
+                    Clear filters
+
+                </button>
+
+                }
+
+            </div>
+
+
+            <!-- ==================================================== -->
+            <!-- DESKTOP TABLE -->
+            <!-- ==================================================== -->
+
+            @if (filteredReferrals.length > 0) {
+
+            <div class="hidden overflow-x-auto md:block">
+
+                <table class="w-full">
+
+                    <thead>
+
+                        <tr class="border-b border-slate-100
+                       bg-slate-50/60">
+
+                            <th class="table-heading">
+                                Referral
+                            </th>
+
+                            <th class="table-heading">
+                                Date Referred
+                            </th>
+
+                            <th class="table-heading">
+                                Product
+                            </th>
+
+                            <th class="table-heading">
+                                Status
+                            </th>
+
+                            <th class="table-heading text-right">
+                                Reward
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @for (
+                        referral of filteredReferrals;
+                        track referral.id
+                        ) {
+
+                        <tr class="referral-row">
+
+                            <!-- Referral -->
+                            <td class="table-cell">
+
+                                <div class="flex items-center gap-3">
+
+                                    <div class="referral-avatar">
+                                        {{ referral.initials }}
+                                    </div>
+
+                                    <div>
+
+                                        <p class="text-sm font-bold
+                                 text-brand-dark">
+                                            {{ referral.name }}
+                                        </p>
+
+                                        <p class="mt-1 text-[10px]
+                                 font-semibold tracking-wide
+                                 text-slate-400">
+                                            {{ referral.id }}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <!-- Date -->
+                            <td class="table-cell">
+
+                                <span class="text-xs text-slate-500">
+                                    {{ referral.date }}
+                                </span>
+
+                            </td>
+
+
+                            <!-- Product -->
+                            <td class="table-cell">
+
+                                <span class="text-xs font-medium
+                             text-slate-600">
+                                    {{ referral.product }}
+                                </span>
+
+                            </td>
+
+
+                            <!-- Status -->
+                            <td class="table-cell">
+
+                                <span class="status-badge" [class]="
+                        'status-badge ' +
+                        getStatusClass(referral.status)
+                      ">
+
+                                    <span class="status-dot"></span>
+
+                                    {{ referral.status }}
+
+                                </span>
+
+                            </td>
+
+
+                            <!-- Reward -->
+                            <td class="table-cell text-right">
+
+                                @if (referral.reward > 0) {
+
+                                <span class="text-sm font-bold
+                               text-brand-dark">
+                                    R{{ referral.reward }}
+                                </span>
+
+                                } @else {
+
+                                <span class="text-xs font-medium
+                               text-slate-300">
+                                    —
+                                </span>
+
+                                }
+
+                            </td>
+
+                        </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- MOBILE CARDS -->
+            <!-- ================================================== -->
+
+            <div class="divide-y divide-slate-100 md:hidden">
+
+                @for (
+                referral of filteredReferrals;
+                track referral.id
+                ) {
+
+                <div class="p-5">
+
+                    <div class="flex items-start
+                       justify-between gap-4">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="referral-avatar">
+                                {{ referral.initials }}
+                            </div>
+
+                            <div>
+
+                                <p class="text-sm font-bold
+                             text-brand-dark">
+                                    {{ referral.name }}
+                                </p>
+
+                                <p class="mt-1 text-[10px]
+                             font-semibold tracking-wide
+                             text-slate-400">
+                                    {{ referral.id }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <span [class]="
+                    'status-badge ' +
+                    getStatusClass(referral.status)
+                  ">
+
+                            <span class="status-dot"></span>
+
+                            {{ referral.status }}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-5 grid grid-cols-2
+                       gap-4 rounded-2xl bg-slate-50 p-4">
+
+                        <div>
+
+                            <p class="mobile-label">
+                                Date Referred
+                            </p>
+
+                            <p class="mobile-value">
+                                {{ referral.date }}
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="mobile-label">
+                                Reward
+                            </p>
+
+                            <p class="mobile-value">
+
+                                @if (referral.reward > 0) {
+                                R{{ referral.reward }}
+                                } @else {
+                                —
+                                }
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="col-span-2">
+
+                            <p class="mobile-label">
+                                Product
+                            </p>
+
+                            <p class="mobile-value">
+                                {{ referral.product }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                }
+
+            </div>
+
+            } @else {
+
+
+            <!-- ================================================== -->
+            <!-- EMPTY STATE -->
+            <!-- ================================================== -->
+
+            <div class="flex min-h-[380px] flex-col
+                 items-center justify-center
+                 px-6 py-16 text-center">
+
+                <div class="flex h-16 w-16 items-center
+                   justify-center rounded-2xl
+                   bg-brand-primary/10
+                   text-brand-primary">
+
+                    <svg viewBox="0 0 24 24" fill="none" class="h-7 w-7" stroke="currentColor" stroke-width="1.7">
+
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-4-4" />
+
+                    </svg>
+
+                </div>
+
+
+                <h3 class="mt-5 text-lg font-bold
+                   text-brand-dark">
+                    No referrals found
+                </h3>
+
+
+                <p class="mt-2 max-w-sm text-xs
+                   leading-5 text-slate-400">
+                    We couldn't find any referrals matching
+                    your current search or filter.
+                </p>
+
+
+                <button type="button" (click)="clearFilters()" class="mt-5 rounded-xl
+                   bg-brand-primary px-5 py-3
+                   text-xs font-bold text-white
+                   transition
+                   hover:bg-brand-primary-dark">
+
+                    Clear Filters
+
+                </button>
+
+            </div>
+
+            }
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- PRIVACY NOTE -->
+        <!-- ====================================================== -->
+
+        <div class="mt-6 flex items-start gap-3
+             rounded-2xl border
+             border-brand-primary/10
+             bg-brand-primary/[0.04]
+             px-5 py-4">
+
+            <div class="flex h-9 w-9 shrink-0 items-center
+               justify-center rounded-xl
+               bg-brand-primary/10
+               text-brand-primary">
+
+                <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="1.8">
+
+                    <path d="M12 3 4 6v5c0 5 3 8 8 10
+               5-2 8-5 8-10V6l-8-3Z" />
+
+                    <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+
+                </svg>
+
+            </div>
+
+
+            <div>
+
+                <p class="text-xs font-bold text-brand-dark">
+                    Your referrals' privacy matters
+                </p>
+
+                <p class="mt-1 text-[11px]
+                 leading-5 text-slate-500">
+                    Only limited progress information is shown here.
+                    Personal financial and policy information remains
+                    private between the referred person and ThuthukaSA.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

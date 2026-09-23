@@ -1,0 +1,470 @@
+:host {
+    display: block;
+}
+
+
+/* =========================================================
+   MY REWARDS
+   Siyasizana / ThuthukaSA
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Reward Hero
+--------------------------------------------------------- */
+
+.reward-hero {
+    box-shadow:
+        0 20px 50px rgba(247, 148, 29, 0.16);
+
+    animation:
+        rewardHeroEnter 550ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+/* ---------------------------------------------------------
+   Summary Cards
+--------------------------------------------------------- */
+
+.reward-summary-card {
+    display: flex;
+
+    min-height: 7.5rem;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1.25rem;
+
+    border: 1px solid #f1f5f9;
+    border-radius: 1.25rem;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.035);
+
+    transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+
+.reward-summary-card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(247, 148, 29, 0.15);
+
+    box-shadow:
+        0 16px 35px rgba(15, 23, 42, 0.055);
+}
+
+
+.reward-summary-icon {
+    display: flex;
+
+    width: 2.9rem;
+    height: 2.9rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.9rem;
+}
+
+
+.reward-summary-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+.paid-icon {
+    background:
+        rgba(22, 163, 74, 0.09);
+
+    color: #15803d;
+}
+
+
+.qualified-icon {
+    background:
+        rgba(247, 148, 29, 0.10);
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.pending-icon {
+    background:
+        rgba(59, 130, 246, 0.08);
+
+    color: #2563eb;
+}
+
+
+.summary-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    color: #94a3b8;
+}
+
+
+.summary-value {
+    margin-top: 0.25rem;
+
+    font-size: 1.4rem;
+    font-weight: 800;
+
+    letter-spacing: -0.035em;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.summary-description {
+    margin-top: 0.2rem;
+
+    font-size: 0.62rem;
+
+    color: #94a3b8;
+}
+
+
+/* ---------------------------------------------------------
+   Table
+--------------------------------------------------------- */
+
+.table-heading {
+    padding:
+        0.85rem 1.25rem;
+
+    text-align: left;
+
+    font-size: 0.56rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+
+    color: #94a3b8;
+}
+
+
+.table-cell {
+    padding:
+        1rem 1.25rem;
+
+    vertical-align: middle;
+}
+
+
+.reward-row {
+    border-bottom:
+        1px solid #f1f5f9;
+
+    transition:
+        background 180ms ease;
+}
+
+
+.reward-row:last-child {
+    border-bottom: 0;
+}
+
+
+.reward-row:hover {
+    background:
+        rgba(247, 148, 29, 0.018);
+}
+
+
+/* ---------------------------------------------------------
+   Referral Avatar
+--------------------------------------------------------- */
+
+.reward-avatar {
+    display: flex;
+
+    width: 2.55rem;
+    height: 2.55rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.12);
+
+    border-radius: 0.85rem;
+
+    background:
+        rgba(247, 148, 29, 0.08);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+/* ---------------------------------------------------------
+   Reward Status
+--------------------------------------------------------- */
+
+.reward-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    border-radius: 999px;
+
+    padding:
+        0.4rem 0.65rem;
+
+    white-space: nowrap;
+
+    font-size: 0.6rem;
+    font-weight: 800;
+}
+
+
+.status-dot {
+    width: 0.35rem;
+    height: 0.35rem;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+.status-paid {
+    background:
+        rgba(22, 163, 74, 0.09);
+
+    color: #15803d;
+}
+
+
+.status-qualified {
+    background:
+        rgba(247, 148, 29, 0.10);
+
+    color:
+        var(--color-brand-primary-dark);
+}
+
+
+.status-pending {
+    background:
+        rgba(59, 130, 246, 0.08);
+
+    color: #2563eb;
+}
+
+
+/* ---------------------------------------------------------
+   How Rewards Work
+--------------------------------------------------------- */
+
+.reward-step {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 0.85rem;
+}
+
+
+.step-number {
+    display: flex;
+
+    width: 1.9rem;
+    height: 1.9rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.18);
+
+    border-radius: 50%;
+
+    background:
+        rgba(247, 148, 29, 0.08);
+
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.step-title {
+    padding-top: 0.05rem;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.step-description {
+    margin-top: 0.2rem;
+
+    font-size: 0.65rem;
+    line-height: 1.1rem;
+
+    color: #94a3b8;
+}
+
+
+/* ---------------------------------------------------------
+   Mobile
+--------------------------------------------------------- */
+
+.mobile-label {
+    font-size: 0.56rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: #94a3b8;
+}
+
+
+.mobile-value {
+    margin-top: 0.3rem;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Entrance Animations
+--------------------------------------------------------- */
+
+.reward-summary-card {
+    animation:
+        rewardCardEnter 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+.reward-summary-card:nth-child(2) {
+    animation-delay: 60ms;
+}
+
+
+.reward-summary-card:nth-child(3) {
+    animation-delay: 120ms;
+}
+
+
+@keyframes rewardHeroEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes rewardCardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    .reward-summary-card {
+        min-height: 6.75rem;
+
+        padding: 1rem;
+    }
+
+
+    .summary-value {
+        font-size: 1.25rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reward-hero,
+    .reward-summary-card {
+        animation: none;
+    }
+
+
+    .reward-summary-card,
+    .reward-row {
+        transition: none;
+    }
+
+
+    .reward-summary-card:hover {
+        transform: none;
+    }
+
+}

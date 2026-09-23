@@ -1,0 +1,523 @@
+:host {
+    display: block;
+}
+
+
+/* =========================================================
+   MAKE A REFERRAL
+   Siyasizana / ThuthukaSA
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Form Labels
+--------------------------------------------------------- */
+
+.form-label {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    color: var(--color-brand-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Text Inputs
+--------------------------------------------------------- */
+
+.input-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 3.25rem;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+
+    background: #ffffff;
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease,
+        transform 200ms ease;
+}
+
+
+.input-container:hover {
+    border-color: #cbd5e1;
+}
+
+
+.input-container:focus-within {
+    border-color: var(--color-brand-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(247, 148, 29, 0.09);
+}
+
+
+.input-container input {
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    padding:
+        0.95rem 1rem 0.95rem 3rem;
+
+    font-family: "Woodford Pro", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    color: var(--color-brand-dark);
+}
+
+
+.input-container input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+
+/* ---------------------------------------------------------
+   Input Icons
+--------------------------------------------------------- */
+
+.input-icon {
+    position: absolute;
+
+    left: 1rem;
+
+    width: 1.1rem;
+    height: 1.1rem;
+
+    color: #94a3b8;
+
+    pointer-events: none;
+
+    transition:
+        color 200ms ease,
+        transform 200ms ease;
+}
+
+
+.input-container:focus-within .input-icon,
+.select-container:focus-within .input-icon {
+    color: var(--color-brand-primary);
+}
+
+
+/* ---------------------------------------------------------
+   Select
+--------------------------------------------------------- */
+
+.select-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 3.25rem;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+
+    background: #ffffff;
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+
+.select-container:hover {
+    border-color: #cbd5e1;
+}
+
+
+.select-container:focus-within {
+    border-color: var(--color-brand-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(247, 148, 29, 0.09);
+}
+
+
+.select-container select {
+    width: 100%;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    padding:
+        0.95rem 3rem 0.95rem 3rem;
+
+    font-family: "Woodford Pro", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    color: var(--color-brand-dark);
+
+    cursor: pointer;
+}
+
+
+.select-container select:invalid {
+    color: #94a3b8;
+}
+
+
+.select-arrow {
+    position: absolute;
+
+    right: 1rem;
+
+    width: 1rem;
+    height: 1rem;
+
+    color: #94a3b8;
+
+    pointer-events: none;
+
+    transition:
+        color 200ms ease,
+        transform 200ms ease;
+}
+
+
+.select-container:focus-within .select-arrow {
+    color: var(--color-brand-primary);
+
+    transform: rotate(180deg);
+}
+
+
+/* ---------------------------------------------------------
+   Validation
+--------------------------------------------------------- */
+
+.input-error {
+    border-color: #ef4444 !important;
+}
+
+
+.input-error:focus-within {
+    border-color: #ef4444 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(239, 68, 68, 0.08) !important;
+}
+
+
+.error-message {
+    margin-top: 0.45rem;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    color: #dc2626;
+}
+
+
+/* ---------------------------------------------------------
+   Consent Card
+--------------------------------------------------------- */
+
+.consent-card {
+    display: flex;
+
+    gap: 0.9rem;
+
+    padding: 1rem;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        border-color 200ms ease,
+        background 200ms ease,
+        box-shadow 200ms ease,
+        transform 200ms ease;
+}
+
+
+.consent-card:hover {
+    border-color:
+        rgba(247, 148, 29, 0.35);
+
+    background:
+        rgba(247, 148, 29, 0.025);
+}
+
+
+.consent-card:has(input:checked) {
+    border-color:
+        rgba(247, 148, 29, 0.4);
+
+    background:
+        rgba(247, 148, 29, 0.045);
+
+    box-shadow:
+        0 0 0 3px rgba(247, 148, 29, 0.04);
+}
+
+
+.consent-card input {
+    cursor: pointer;
+}
+
+
+.consent-error {
+    border-color: #ef4444 !important;
+
+    background:
+        rgba(239, 68, 68, 0.02);
+}
+
+
+/* ---------------------------------------------------------
+   Referral Journey
+--------------------------------------------------------- */
+
+.journey-item {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 0.9rem;
+
+    padding:
+        0.35rem 0;
+}
+
+
+.journey-marker {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    width: 2rem;
+    height: 2rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.18);
+
+    border-radius: 50%;
+
+    background:
+        rgba(247, 148, 29, 0.08);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.journey-title {
+    padding-top: 0.1rem;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+.journey-description {
+    margin-top: 0.2rem;
+
+    font-size: 0.68rem;
+    line-height: 1.1rem;
+
+    color: #94a3b8;
+}
+
+
+.journey-line {
+    width: 1px;
+    height: 1.1rem;
+
+    margin:
+        0.15rem 0 0.15rem 0.98rem;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(247, 148, 29, 0.25),
+            rgba(247, 148, 29, 0.06));
+}
+
+
+/* ---------------------------------------------------------
+   Loading Spinner
+--------------------------------------------------------- */
+
+.loading-spinner {
+    width: 1rem;
+    height: 1rem;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.35);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation:
+        referralSpin 700ms linear infinite;
+}
+
+
+@keyframes referralSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Page Entrance
+--------------------------------------------------------- */
+
+section {
+    animation:
+        referralFormEnter 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+aside {
+    animation:
+        referralSideEnter 650ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+}
+
+
+@keyframes referralFormEnter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes referralSideEnter {
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(14px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Autofill
+--------------------------------------------------------- */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color:
+        var(--color-brand-dark);
+
+    -webkit-box-shadow:
+        0 0 0 1000px #ffffff inset;
+
+    transition:
+        background-color 9999s ease-in-out 0s;
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    .input-container,
+    .select-container {
+        min-height: 3.15rem;
+    }
+
+
+    .input-container input,
+    .select-container select {
+        font-size: 0.82rem;
+    }
+
+
+    .consent-card {
+        padding: 0.9rem;
+    }
+
+
+    .journey-description {
+        max-width: 15rem;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    section,
+    aside,
+    .loading-spinner {
+        animation: none;
+    }
+
+
+    .input-container,
+    .select-container,
+    .consent-card,
+    .input-icon,
+    .select-arrow {
+        transition: none;
+    }
+
+}

@@ -1,1 +1,716 @@
-<p>rewards works!</p>
+<div class="min-h-[calc(100vh-88px)] bg-brand-light">
+
+    <div class="mx-auto max-w-7xl px-5 py-8 sm:px-7 lg:px-9 lg:py-10">
+
+        <!-- ====================================================== -->
+        <!-- HEADER -->
+        <!-- ====================================================== -->
+
+        <div class="mb-8 flex flex-col justify-between gap-5
+             sm:flex-row sm:items-end">
+
+            <div>
+
+                <div class="mb-3 flex items-center gap-2">
+
+                    <span class="h-2 w-2 rounded-full bg-brand-primary">
+                    </span>
+
+                    <span class="text-[10px] font-bold uppercase
+                   tracking-[0.2em] text-brand-primary">
+                        Siyasizana Rewards
+                    </span>
+
+                </div>
+
+                <h1 class="text-3xl font-bold tracking-[-0.035em]
+                 text-brand-dark sm:text-4xl">
+                    My Rewards
+                </h1>
+
+                <p class="mt-3 max-w-2xl text-sm
+                 leading-6 text-slate-500">
+                    Track the rewards you've earned through your
+                    successful Siyasizana referrals.
+                </p>
+
+            </div>
+
+
+            <a routerLink="/referrer/new" class="group inline-flex items-center justify-center
+               gap-2 self-start rounded-xl
+               bg-brand-primary px-5 py-3
+               text-xs font-bold text-white
+               shadow-[0_12px_28px_rgba(247,148,29,0.20)]
+               transition-all duration-300
+               hover:-translate-y-0.5
+               hover:bg-brand-primary-dark">
+
+                <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+                </svg>
+
+                Make a Referral
+
+            </a>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- REWARD HERO -->
+        <!-- ====================================================== -->
+
+        <section class="reward-hero relative mb-7 overflow-hidden
+             rounded-3xl bg-brand-primary
+             px-6 py-7 text-white
+             sm:px-8 sm:py-8">
+
+            <!-- Decorative circles -->
+
+            <div class="absolute -right-20 -top-24
+               h-72 w-72 rounded-full
+               bg-white/[0.08] blur-sm">
+            </div>
+
+            <div class="absolute -bottom-32 right-48
+               h-64 w-64 rounded-full
+               bg-white/[0.05]">
+            </div>
+
+
+            <div class="relative z-10 flex flex-col
+               justify-between gap-8
+               lg:flex-row lg:items-end">
+
+                <!-- Total -->
+
+                <div>
+
+                    <div class="flex h-12 w-12 items-center
+                   justify-center rounded-2xl
+                   bg-white/15 backdrop-blur">
+
+                        <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor" stroke-width="1.8">
+
+                            <path d="M20 12v8H4v-8" />
+                            <path d="M12 20V8" />
+                            <path d="M3 8h18v4H3z" />
+
+                            <path d="M12 8H8.5A2.5 2.5 0 1 1
+                   11 5.5L12 8Z" />
+
+                            <path d="M12 8h3.5A2.5 2.5 0 1 0
+                   13 5.5L12 8Z" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <p class="mt-6 text-[10px] font-bold uppercase
+                   tracking-[0.2em] text-white/60">
+                        Total Rewards Paid
+                    </p>
+
+
+                    <div class="mt-2 flex items-end gap-3">
+
+                        <span class="text-4xl font-bold
+                     tracking-[-0.05em] sm:text-5xl">
+                            R{{ paidRewards.toLocaleString() }}
+                        </span>
+
+                        <span class="mb-1 rounded-full
+                     bg-white/15 px-3 py-1
+                     text-[10px] font-bold">
+                            {{ paidCount }} rewards
+                        </span>
+
+                    </div>
+
+
+                    <p class="mt-4 max-w-lg text-xs
+                   leading-6 text-white/65">
+                        You've earned this amount from referrals
+                        that successfully qualified and were paid.
+                    </p>
+
+                </div>
+
+
+                <!-- Reward value -->
+
+                <div class="rounded-2xl border border-white/15
+                 bg-white/10 px-5 py-4
+                 backdrop-blur">
+
+                    <p class="text-[9px] font-bold uppercase
+                   tracking-[0.18em] text-white/55">
+                        Reward per qualifying referral
+                    </p>
+
+                    <p class="mt-1 text-2xl font-bold">
+                        R500
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ====================================================== -->
+        <!-- SUMMARY -->
+        <!-- ====================================================== -->
+
+        <div class="mb-7 grid gap-4 md:grid-cols-3">
+
+            <!-- Paid -->
+
+            <div class="reward-summary-card">
+
+                <div class="reward-summary-icon paid-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="m8 12 2.5 2.5L16 9" stroke-linecap="round" stroke-linejoin="round" />
+
+                    </svg>
+
+                </div>
+
+
+                <div>
+
+                    <p class="summary-label">
+                        Paid
+                    </p>
+
+                    <p class="summary-value">
+                        R{{ paidRewards.toLocaleString() }}
+                    </p>
+
+                    <p class="summary-description">
+                        Successfully paid to you
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Qualified -->
+
+            <div class="reward-summary-card">
+
+                <div class="reward-summary-icon qualified-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M20 12v8H4v-8" />
+                        <path d="M12 20V8" />
+                        <path d="M3 8h18v4H3z" />
+
+                    </svg>
+
+                </div>
+
+
+                <div>
+
+                    <p class="summary-label">
+                        Qualified
+                    </p>
+
+                    <p class="summary-value">
+                        R{{ qualifiedRewards.toLocaleString() }}
+                    </p>
+
+                    <p class="summary-description">
+                        Qualified for payment
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pending -->
+
+            <div class="reward-summary-card">
+
+                <div class="reward-summary-icon pending-icon">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round" />
+
+                    </svg>
+
+                </div>
+
+
+                <div>
+
+                    <p class="summary-label">
+                        Pending
+                    </p>
+
+                    <p class="summary-value">
+                        R{{ pendingRewards.toLocaleString() }}
+                    </p>
+
+                    <p class="summary-description">
+                        Still progressing
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- MAIN GRID -->
+        <!-- ====================================================== -->
+
+        <div class="grid items-start gap-7
+             xl:grid-cols-[minmax(0,1.5fr)_minmax(300px,0.65fr)]">
+
+
+            <!-- ==================================================== -->
+            <!-- REWARD HISTORY -->
+            <!-- ==================================================== -->
+
+            <section class="overflow-hidden rounded-3xl
+               border border-slate-100 bg-white
+               shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+
+                <!-- Heading -->
+
+                <div class="flex items-center justify-between
+                 border-b border-slate-100
+                 px-6 py-5 sm:px-7">
+
+                    <div>
+
+                        <p class="text-[10px] font-bold uppercase
+                     tracking-[0.18em] text-brand-primary">
+                            Reward Activity
+                        </p>
+
+                        <h2 class="mt-1 text-lg font-bold
+                     text-brand-dark">
+                            Reward History
+                        </h2>
+
+                    </div>
+
+
+                    <a routerLink="/referrer/referrals" class="text-[11px] font-bold
+                   text-brand-primary transition
+                   hover:text-brand-primary-dark">
+                        View referrals
+                    </a>
+
+                </div>
+
+
+                <!-- Desktop -->
+
+                <div class="hidden overflow-x-auto md:block">
+
+                    <table class="w-full">
+
+                        <thead>
+
+                            <tr class="border-b border-slate-100
+                       bg-slate-50/60">
+
+                                <th class="table-heading">
+                                    Referral
+                                </th>
+
+                                <th class="table-heading">
+                                    Qualified
+                                </th>
+
+                                <th class="table-heading">
+                                    Status
+                                </th>
+
+                                <th class="table-heading">
+                                    Payment Date
+                                </th>
+
+                                <th class="table-heading text-right">
+                                    Amount
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            @for (reward of rewards; track reward.id) {
+
+                            <tr class="reward-row">
+
+                                <!-- Referral -->
+
+                                <td class="table-cell">
+
+                                    <div class="flex items-center gap-3">
+
+                                        <div class="reward-avatar">
+                                            {{ reward.initials }}
+                                        </div>
+
+                                        <div>
+
+                                            <p class="text-sm font-bold
+                                 text-brand-dark">
+                                                {{ reward.referralName }}
+                                            </p>
+
+                                            <p class="mt-1 text-[10px]
+                                 font-semibold tracking-wide
+                                 text-slate-400">
+                                                {{ reward.id }}
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- Qualified -->
+
+                                <td class="table-cell">
+
+                                    <span class="text-xs text-slate-500">
+                                        {{ reward.qualifiedDate }}
+                                    </span>
+
+                                </td>
+
+
+                                <!-- Status -->
+
+                                <td class="table-cell">
+
+                                    <span [class]="
+                        'reward-status ' +
+                        getStatusClass(reward.status)
+                      ">
+
+                                        <span class="status-dot"></span>
+
+                                        {{ reward.status }}
+
+                                    </span>
+
+                                </td>
+
+
+                                <!-- Payment -->
+
+                                <td class="table-cell">
+
+                                    @if (reward.paymentDate) {
+
+                                    <span class="text-xs text-slate-500">
+                                        {{ reward.paymentDate }}
+                                    </span>
+
+                                    } @else {
+
+                                    <span class="text-xs text-slate-300">
+                                        —
+                                    </span>
+
+                                    }
+
+                                </td>
+
+
+                                <!-- Amount -->
+
+                                <td class="table-cell text-right">
+
+                                    <span class="text-sm font-bold
+                             text-brand-dark">
+                                        R{{ reward.amount }}
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- Mobile -->
+
+                <div class="divide-y divide-slate-100 md:hidden">
+
+                    @for (reward of rewards; track reward.id) {
+
+                    <div class="p-5">
+
+                        <div class="flex items-start
+                       justify-between gap-3">
+
+                            <div class="flex items-center gap-3">
+
+                                <div class="reward-avatar">
+                                    {{ reward.initials }}
+                                </div>
+
+                                <div>
+
+                                    <p class="text-sm font-bold
+                             text-brand-dark">
+                                        {{ reward.referralName }}
+                                    </p>
+
+                                    <p class="mt-1 text-[10px]
+                             font-semibold text-slate-400">
+                                        {{ reward.id }}
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <span [class]="
+                    'reward-status ' +
+                    getStatusClass(reward.status)
+                  ">
+
+                                <span class="status-dot"></span>
+
+                                {{ reward.status }}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="mt-5 grid grid-cols-2
+                       gap-4 rounded-2xl
+                       bg-slate-50 p-4">
+
+                            <div>
+
+                                <p class="mobile-label">
+                                    Amount
+                                </p>
+
+                                <p class="mobile-value">
+                                    R{{ reward.amount }}
+                                </p>
+
+                            </div>
+
+
+                            <div>
+
+                                <p class="mobile-label">
+                                    Qualified
+                                </p>
+
+                                <p class="mobile-value">
+                                    {{ reward.qualifiedDate }}
+                                </p>
+
+                            </div>
+
+
+                            <div class="col-span-2">
+
+                                <p class="mobile-label">
+                                    Payment Date
+                                </p>
+
+                                <p class="mobile-value">
+
+                                    @if (reward.paymentDate) {
+                                    {{ reward.paymentDate }}
+                                    } @else {
+                                    Not paid yet
+                                    }
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================================================== -->
+            <!-- RIGHT SIDE -->
+            <!-- ==================================================== -->
+
+            <aside class="space-y-5">
+
+
+                <!-- How rewards work -->
+
+                <div class="rounded-3xl border border-slate-100
+                 bg-white p-6
+                 shadow-[0_14px_40px_rgba(15,23,42,0.04)]">
+
+                    <div class="flex h-11 w-11 items-center
+                   justify-center rounded-xl
+                   bg-brand-primary/10
+                   text-brand-primary">
+
+                        <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="1.8">
+
+                            <path d="M20 12v8H4v-8" />
+                            <path d="M12 20V8" />
+                            <path d="M3 8h18v4H3z" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <p class="mt-5 text-[10px] font-bold uppercase
+                   tracking-[0.18em] text-brand-primary">
+                        How it works
+                    </p>
+
+                    <h3 class="mt-2 text-lg font-bold
+                   text-brand-dark">
+                        Earning your R500
+                    </h3>
+
+
+                    <div class="mt-6 space-y-5">
+
+                        <div class="reward-step">
+
+                            <span class="step-number">
+                                1
+                            </span>
+
+                            <div>
+
+                                <p class="step-title">
+                                    Make a referral
+                                </p>
+
+                                <p class="step-description">
+                                    Refer someone who has agreed to be
+                                    contacted by ThuthukaSA.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="reward-step">
+
+                            <span class="step-number">
+                                2
+                            </span>
+
+                            <div>
+
+                                <p class="step-title">
+                                    They become a customer
+                                </p>
+
+                                <p class="step-description">
+                                    Your referral successfully takes up
+                                    a qualifying product.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="reward-step">
+
+                            <span class="step-number">
+                                3
+                            </span>
+
+                            <div>
+
+                                <p class="step-title">
+                                    Qualification
+                                </p>
+
+                                <p class="step-description">
+                                    Three successful premiums must be
+                                    received before the reward qualifies.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="reward-step">
+
+                            <span class="step-number">
+                                4
+                            </span>
+
+                            <div>
+
+                                <p class="step-title">
+                                    Receive R500
+                                </p>
+
+                                <p class="step-description">
+                                    Qualified rewards are processed
+                                    according to the programme payment cycle.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</div>

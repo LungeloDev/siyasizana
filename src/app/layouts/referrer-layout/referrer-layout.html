@@ -12,9 +12,9 @@
     <!-- ====================================================== -->
 
     <aside class="fixed inset-y-0 left-0 z-50 flex w-[260px]
-           flex-col bg-brand-primary
-           transition-transform duration-300
-           lg:translate-x-0" [class.-translate-x-full]="!sidebarOpen" [class.translate-x-0]="sidebarOpen">
+         flex-col bg-brand-charcoal
+         transition-transform duration-300
+         lg:translate-x-0">
 
         <!-- Logo -->
         <div class="flex h-[88px] items-center justify-between
@@ -22,19 +22,10 @@
 
             <a routerLink="/referrer/dashboard" class="flex items-center gap-3" (click)="closeSidebar()">
 
-                <div class="flex h-11 w-11 items-center justify-center
-                 rounded-2xl bg-brand-accent/15">
-                    <svg viewBox="0 0 24 24" fill="none" class="h-7 w-7 text-brand-accent" stroke="currentColor"
-                        stroke-width="1.6">
-                        <path d="M12 21V10m0 0C9 10 6 8 6 5c3 0 6 1 6 5Zm0 0c3 0 6-2 6-5-3 0-6 1-6 5ZM8 21h8"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-
                 <div>
-                    <p class="font-serif text-[20px] font-semibold
-                   tracking-[0.07em] text-white">
-                        THUTHUKA<span class="text-brand-accent">SA</span>
+                    <p class="text-[20px] font-semibold
+                   tracking-[0.07em] text-brand-accent">
+                        Thuthuka<span class="text-brand-accent">SA</span>
                     </p>
 
                     <p class="text-[7px] font-bold uppercase
@@ -136,14 +127,6 @@
                     }
 
                     <span>{{ item.label }}</span>
-
-                    @if (item.icon === 'refer') {
-                    <span class="ml-auto rounded-full bg-brand-accent
-                       px-2 py-0.5 text-[8px]
-                       font-bold text-white">
-                        NEW
-                    </span>
-                    }
 
                 </a>
 

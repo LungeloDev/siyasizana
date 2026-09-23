@@ -1,1 +1,865 @@
-<p>new works!</p>
+<div class="min-h-[calc(100vh-88px)] bg-brand-light">
+
+    <div class="mx-auto max-w-7xl px-5 py-8 sm:px-7 lg:px-9 lg:py-10">
+
+        <!-- ====================================================== -->
+        <!-- PAGE HEADER -->
+        <!-- ====================================================== -->
+
+        <div class="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+
+            <div>
+                <div class="mb-3 flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-brand-primary"></span>
+
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em]
+                   text-brand-primary">
+                        New Referral
+                    </span>
+                </div>
+
+                <h1 class="text-3xl font-bold tracking-[-0.035em]
+                 text-brand-dark sm:text-4xl">
+                    Make a Referral
+                </h1>
+
+                <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
+                    Refer a family member, friend or colleague who may benefit
+                    from ThuthukaSA's financial solutions.
+                </p>
+            </div>
+
+            <a routerLink="/referrer/referrals" class="inline-flex items-center gap-2 self-start rounded-xl
+               border border-slate-200 bg-white px-4 py-2.5
+               text-xs font-semibold text-slate-600
+               transition-all duration-200
+               hover:border-brand-primary/30
+               hover:text-brand-primary">
+
+                <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="1.8">
+                    <path d="M5 6h14M5 12h14M5 18h9" stroke-linecap="round" />
+                </svg>
+
+                My Referrals
+            </a>
+
+        </div>
+
+
+        <!-- ====================================================== -->
+        <!-- SUCCESS -->
+        <!-- ====================================================== -->
+
+        @if (submitted) {
+
+        <div class="mx-auto max-w-3xl overflow-hidden rounded-3xl
+               border border-slate-100 bg-white
+               shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
+
+            <!-- Success header -->
+            <div class="relative overflow-hidden bg-brand-charcoal
+                 px-7 py-10 text-center text-white sm:px-12">
+
+                <div class="absolute -right-20 -top-24 h-64 w-64
+                   rounded-full bg-brand-primary/15 blur-3xl">
+                </div>
+
+                <div class="absolute -bottom-28 -left-16 h-64 w-64
+                   rounded-full bg-brand-primary/10 blur-3xl">
+                </div>
+
+                <div class="relative z-10">
+
+                    <div class="mx-auto flex h-16 w-16 items-center
+                     justify-center rounded-full
+                     bg-brand-primary text-white
+                     shadow-[0_12px_35px_rgba(247,148,29,0.30)]">
+
+                        <svg viewBox="0 0 24 24" fill="none" class="h-8 w-8" stroke="currentColor" stroke-width="2">
+                            <path d="m5 12 4 4L19 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+
+                    <p class="mt-6 text-[10px] font-bold uppercase
+                     tracking-[0.22em] text-brand-primary">
+                        Referral Submitted
+                    </p>
+
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight">
+                        Thank you for your referral.
+                    </h2>
+
+                    <p class="mx-auto mt-3 max-w-lg text-sm
+                     leading-6 text-white/60">
+                        ThuthukaSA can now begin assisting your referral.
+                        You can follow their progress from your referral dashboard.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- Success details -->
+            <div class="px-7 py-8 sm:px-10">
+
+                <div class="rounded-2xl border border-brand-primary/15
+                   bg-brand-primary/[0.05] p-5 text-center">
+
+                    <p class="text-[10px] font-bold uppercase
+                     tracking-[0.18em] text-slate-400">
+                        Referral Number
+                    </p>
+
+                    <p class="mt-2 text-2xl font-bold
+                     tracking-wide text-brand-dark">
+                        {{ referralNumber }}
+                    </p>
+
+                    <p class="mt-2 text-xs text-slate-500">
+                        Keep this number for your records.
+                    </p>
+
+                </div>
+
+
+                <div class="mt-7 grid gap-4 sm:grid-cols-3">
+
+                    <!-- Submitted -->
+                    <div class="rounded-2xl border border-slate-100
+                     bg-white p-4 text-center">
+
+                        <div class="mx-auto flex h-9 w-9 items-center
+                       justify-center rounded-full
+                       bg-brand-primary text-white">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="2">
+                                <path d="m5 12 4 4L19 6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                        </div>
+
+                        <p class="mt-3 text-xs font-bold text-brand-dark">
+                            Submitted
+                        </p>
+
+                        <p class="mt-1 text-[10px] text-slate-400">
+                            Referral received
+                        </p>
+
+                    </div>
+
+
+                    <!-- In Progress -->
+                    <div class="rounded-2xl border border-slate-100
+                     bg-slate-50 p-4 text-center">
+
+                        <div class="mx-auto flex h-9 w-9 items-center
+                       justify-center rounded-full
+                       bg-slate-200 text-slate-400">
+                            <span class="text-xs font-bold">2</span>
+                        </div>
+
+                        <p class="mt-3 text-xs font-bold text-slate-500">
+                            In Progress
+                        </p>
+
+                        <p class="mt-1 text-[10px] text-slate-400">
+                            ThuthukaSA assists them
+                        </p>
+
+                    </div>
+
+
+                    <!-- Qualified -->
+                    <div class="rounded-2xl border border-slate-100
+                     bg-slate-50 p-4 text-center">
+
+                        <div class="mx-auto flex h-9 w-9 items-center
+                       justify-center rounded-full
+                       bg-slate-200 text-slate-400">
+                            <span class="text-xs font-bold">3</span>
+                        </div>
+
+                        <p class="mt-3 text-xs font-bold text-slate-500">
+                            Qualified
+                        </p>
+
+                        <p class="mt-1 text-[10px] text-slate-400">
+                            Reward becomes eligible
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+
+                    <a routerLink="/referrer/referrals" class="flex flex-1 items-center justify-center
+                     rounded-xl bg-brand-primary px-6 py-4
+                     text-sm font-bold text-white
+                     shadow-[0_12px_30px_rgba(247,148,29,0.20)]
+                     transition-all duration-300
+                     hover:-translate-y-0.5
+                     hover:bg-brand-primary-dark">
+                        View My Referrals
+                    </a>
+
+                    <button type="button" (click)="createAnotherReferral()" class="flex flex-1 items-center justify-center
+                     rounded-xl border border-slate-200 bg-white
+                     px-6 py-4 text-sm font-semibold
+                     text-brand-dark transition-all duration-300
+                     hover:border-brand-primary/30
+                     hover:text-brand-primary">
+                        Make Another Referral
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        } @else {
+
+
+        <!-- ====================================================== -->
+        <!-- FORM LAYOUT -->
+        <!-- ====================================================== -->
+
+        <div class="grid items-start gap-7
+               lg:grid-cols-[minmax(0,1.45fr)_minmax(300px,0.75fr)]">
+
+
+            <!-- ==================================================== -->
+            <!-- FORM CARD -->
+            <!-- ==================================================== -->
+
+            <section class="rounded-3xl border border-slate-100 bg-white
+                 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+
+                <!-- Form heading -->
+                <div class="border-b border-slate-100
+                   px-6 py-6 sm:px-8">
+
+                    <div class="flex items-start gap-4">
+
+                        <div class="flex h-11 w-11 shrink-0 items-center
+                       justify-center rounded-xl
+                       bg-brand-primary/10 text-brand-primary">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <circle cx="9" cy="8" r="3" />
+
+                                <path d="M3 20c0-4 2-7 6-7s6 3 6 7" stroke-linecap="round" />
+
+                                <path d="M18 8v6M15 11h6" stroke-linecap="round" />
+
+                            </svg>
+
+                        </div>
+
+                        <div>
+                            <h2 class="text-lg font-bold text-brand-dark">
+                                Referral Details
+                            </h2>
+
+                            <p class="mt-1 text-xs leading-5 text-slate-500">
+                                Tell us about the person you would like to refer.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Form -->
+                <form [formGroup]="referralForm" (ngSubmit)="onSubmit()" class="p-6 sm:p-8">
+
+
+                    <!-- ----------------------------------------------- -->
+                    <!-- Personal Details -->
+                    <!-- ----------------------------------------------- -->
+
+                    <div>
+
+                        <div class="mb-5">
+                            <p class="text-[10px] font-bold uppercase
+                         tracking-[0.18em] text-brand-primary">
+                                Personal Information
+                            </p>
+
+                            <p class="mt-1 text-xs text-slate-400">
+                                Enter your referral's contact details.
+                            </p>
+                        </div>
+
+
+                        <div class="grid gap-5 sm:grid-cols-2">
+
+                            <!-- First name -->
+                            <div>
+
+                                <label class="form-label">
+                                    First name
+                                    <span class="text-red-500">*</span>
+                                </label>
+
+                                <div class="input-container" [class.input-error]="
+                      firstName?.invalid &&
+                      firstName?.touched
+                    ">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <circle cx="12" cy="8" r="4" />
+                                        <path d="M4 21c0-5 3-8 8-8s8 3 8 8" />
+                                    </svg>
+
+                                    <input type="text" formControlName="firstName" placeholder="e.g. Thando"
+                                        autocomplete="given-name" />
+
+                                </div>
+
+                                @if (firstName?.invalid && firstName?.touched) {
+                                <p class="error-message">
+                                    Please enter a valid first name.
+                                </p>
+                                }
+
+                            </div>
+
+
+                            <!-- Surname -->
+                            <div>
+
+                                <label class="form-label">
+                                    Surname
+                                    <span class="text-red-500">*</span>
+                                </label>
+
+                                <div class="input-container" [class.input-error]="
+                      surname?.invalid &&
+                      surname?.touched
+                    ">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <circle cx="12" cy="8" r="4" />
+                                        <path d="M4 21c0-5 3-8 8-8s8 3 8 8" />
+                                    </svg>
+
+                                    <input type="text" formControlName="surname" placeholder="e.g. Mokoena"
+                                        autocomplete="family-name" />
+
+                                </div>
+
+                                @if (surname?.invalid && surname?.touched) {
+                                <p class="error-message">
+                                    Please enter a valid surname.
+                                </p>
+                                }
+
+                            </div>
+
+
+                            <!-- Mobile -->
+                            <div>
+
+                                <label class="form-label">
+                                    Mobile number
+                                    <span class="text-red-500">*</span>
+                                </label>
+
+                                <div class="input-container" [class.input-error]="
+                      mobile?.invalid &&
+                      mobile?.touched
+                    ">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <rect x="6" y="2" width="12" height="20" rx="2" />
+                                        <path d="M10 18h4" />
+                                    </svg>
+
+                                    <input type="tel" formControlName="mobile" placeholder="082 123 4567"
+                                        autocomplete="tel" />
+
+                                </div>
+
+                                @if (mobile?.invalid && mobile?.touched) {
+                                <p class="error-message">
+                                    Enter a valid South African mobile number.
+                                </p>
+                                }
+
+                            </div>
+
+
+                            <!-- Email -->
+                            <div>
+
+                                <label class="form-label">
+                                    Email address
+                                    <span class="font-medium text-slate-400">
+                                        (optional)
+                                    </span>
+                                </label>
+
+                                <div class="input-container" [class.input-error]="
+                      email?.invalid &&
+                      email?.touched
+                    ">
+
+                                    <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <path d="M4 5h16v14H4V5Z" />
+                                        <path d="m4 7 8 6 8-6" />
+                                    </svg>
+
+                                    <input type="email" formControlName="email" placeholder="thando@example.com"
+                                        autocomplete="email" />
+
+                                </div>
+
+                                @if (email?.invalid && email?.touched) {
+                                <p class="error-message">
+                                    Enter a valid email address.
+                                </p>
+                                }
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Divider -->
+                    <div class="my-8 h-px bg-slate-100"></div>
+
+
+                    <!-- ----------------------------------------------- -->
+                    <!-- Product -->
+                    <!-- ----------------------------------------------- -->
+
+                    <div>
+
+                        <div class="mb-5">
+                            <p class="text-[10px] font-bold uppercase
+                         tracking-[0.18em] text-brand-primary">
+                                Financial Need
+                            </p>
+
+                            <p class="mt-1 text-xs text-slate-400">
+                                What would your referral like assistance with?
+                            </p>
+                        </div>
+
+
+                        <div>
+
+                            <label class="form-label">
+                                Product or service
+                                <span class="text-red-500">*</span>
+                            </label>
+
+                            <div class="select-container" [class.input-error]="
+                    product?.invalid &&
+                    product?.touched
+                  ">
+
+                                <svg viewBox="0 0 24 24" fill="none" class="input-icon" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <path d="M6 3h9l3 3v15H6V3Z" />
+                                    <path d="M9 11h6M9 15h6" />
+                                </svg>
+
+                                <select formControlName="product">
+
+                                    <option value="" disabled>
+                                        Select a product or service
+                                    </option>
+
+                                    @for (item of products; track item) {
+                                    <option [value]="item">
+                                        {{ item }}
+                                    </option>
+                                    }
+
+                                </select>
+
+                                <svg viewBox="0 0 24 24" fill="none" class="select-arrow" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="m7 10 5 5 5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+
+                            @if (product?.invalid && product?.touched) {
+                            <p class="error-message">
+                                Please select a product or service.
+                            </p>
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Divider -->
+                    <div class="my-8 h-px bg-slate-100"></div>
+
+
+                    <!-- ----------------------------------------------- -->
+                    <!-- POPIA Consent -->
+                    <!-- ----------------------------------------------- -->
+
+                    <div>
+
+                        <div class="mb-5">
+                            <p class="text-[10px] font-bold uppercase
+                         tracking-[0.18em] text-brand-primary">
+                                Consent
+                            </p>
+
+                            <p class="mt-1 text-xs text-slate-400">
+                                Please confirm consent before submitting.
+                            </p>
+                        </div>
+
+
+                        <label class="consent-card" [class.consent-error]="
+                  consentConfirmed?.invalid &&
+                  consentConfirmed?.touched
+                ">
+
+                            <div class="pt-0.5">
+
+                                <input type="checkbox" formControlName="consentConfirmed" class="h-4 w-4 rounded border-slate-300
+                           accent-brand-primary" />
+
+                            </div>
+
+
+                            <div>
+
+                                <p class="text-sm font-semibold text-brand-dark">
+                                    I confirm that I have obtained consent.
+                                </p>
+
+                                <p class="mt-1.5 text-xs leading-5 text-slate-500">
+                                    I confirm that the person I am referring has
+                                    explicitly agreed for me to share their contact
+                                    information with ThuthukaSA for the purpose of
+                                    being contacted about financial services.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+
+                        @if (
+                        consentConfirmed?.invalid &&
+                        consentConfirmed?.touched
+                        ) {
+                        <p class="error-message">
+                            Consent must be confirmed before submitting
+                            the referral.
+                        </p>
+                        }
+
+                    </div>
+
+
+                    <!-- ----------------------------------------------- -->
+                    <!-- Submit -->
+                    <!-- ----------------------------------------------- -->
+
+                    <div class="mt-8 flex flex-col gap-4 border-t
+                     border-slate-100 pt-7
+                     sm:flex-row sm:items-center
+                     sm:justify-between">
+
+                        <p class="max-w-sm text-[11px] leading-5 text-slate-400">
+                            Please make sure the information provided is correct
+                            before submitting.
+                        </p>
+
+
+                        <button type="submit" [disabled]="isSubmitting" class="group inline-flex min-w-[190px]
+                       items-center justify-center gap-3
+                       rounded-xl bg-brand-primary
+                       px-7 py-4 text-sm font-bold text-white
+                       shadow-[0_14px_30px_rgba(247,148,29,0.20)]
+                       transition-all duration-300
+                       hover:-translate-y-0.5
+                       hover:bg-brand-primary-dark
+                       hover:shadow-[0_18px_36px_rgba(247,148,29,0.28)]
+                       disabled:cursor-not-allowed
+                       disabled:opacity-60">
+
+                            @if (isSubmitting) {
+
+                            <span class="loading-spinner"></span>
+
+                            Submitting...
+
+                            } @else {
+
+                            Submit Referral
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4 transition-transform
+                           group-hover:translate-x-1" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14m-5-5 5 5-5 5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                            }
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- ==================================================== -->
+            <!-- RIGHT SIDE -->
+            <!-- ==================================================== -->
+
+            <aside class="space-y-5">
+
+
+                <!-- Reward -->
+                <div class="relative overflow-hidden rounded-3xl
+                   bg-brand-charcoal p-7 text-white
+                   shadow-[0_18px_50px_rgba(36,36,36,0.14)]">
+
+                    <div class="absolute -right-20 -top-20
+                     h-56 w-56 rounded-full
+                     bg-brand-primary/15 blur-3xl">
+                    </div>
+
+
+                    <div class="relative z-10">
+
+                        <div class="flex h-12 w-12 items-center
+                       justify-center rounded-2xl
+                       bg-brand-primary text-white">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-6 w-6" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <path d="M20 12v8H4v-8" />
+
+                                <path d="M12 20V8" />
+
+                                <path d="M3 8h18v4H3z" />
+
+                                <path d="M12 8H8.5A2.5 2.5 0 1 1 11 5.5L12 8Z" />
+
+                                <path d="M12 8h3.5A2.5 2.5 0 1 0 13 5.5L12 8Z" />
+
+                            </svg>
+
+                        </div>
+
+
+                        <p class="mt-6 text-[10px] font-bold uppercase
+                       tracking-[0.2em] text-brand-primary">
+                            Referral Reward
+                        </p>
+
+
+                        <div class="mt-2 flex items-end gap-2">
+
+                            <span class="text-5xl font-bold tracking-[-0.05em]">
+                                R500
+                            </span>
+
+                            <span class="mb-1 text-xs text-white/45">
+                                per qualifying referral
+                            </span>
+
+                        </div>
+
+
+                        <p class="mt-4 text-xs leading-6 text-white/55">
+                            Your referral reward becomes eligible once the
+                            qualifying referral has successfully completed
+                            three premium payments.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- How it works -->
+                <div class="rounded-3xl border border-slate-100
+                   bg-white p-6
+                   shadow-[0_14px_40px_rgba(15,23,42,0.04)]">
+
+                    <p class="text-[10px] font-bold uppercase
+                     tracking-[0.18em] text-brand-primary">
+                        What happens next?
+                    </p>
+
+                    <h3 class="mt-2 text-lg font-bold text-brand-dark">
+                        Your referral journey
+                    </h3>
+
+
+                    <div class="mt-6 space-y-1">
+
+                        <!-- 1 -->
+                        <div class="journey-item">
+
+                            <div class="journey-marker">
+                                1
+                            </div>
+
+                            <div>
+                                <p class="journey-title">
+                                    Submitted
+                                </p>
+
+                                <p class="journey-description">
+                                    Your referral is securely submitted to
+                                    ThuthukaSA.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-line"></div>
+
+
+                        <!-- 2 -->
+                        <div class="journey-item">
+
+                            <div class="journey-marker">
+                                2
+                            </div>
+
+                            <div>
+                                <p class="journey-title">
+                                    In Progress
+                                </p>
+
+                                <p class="journey-description">
+                                    ThuthukaSA contacts and assists your referral.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-line"></div>
+
+
+                        <!-- 3 -->
+                        <div class="journey-item">
+
+                            <div class="journey-marker">
+                                3
+                            </div>
+
+                            <div>
+                                <p class="journey-title">
+                                    Qualified
+                                </p>
+
+                                <p class="journey-description">
+                                    The referral meets the programme's reward
+                                    requirements.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-line"></div>
+
+
+                        <!-- 4 -->
+                        <div class="journey-item">
+
+                            <div class="journey-marker">
+                                4
+                            </div>
+
+                            <div>
+                                <p class="journey-title">
+                                    Reward Paid
+                                </p>
+
+                                <p class="journey-description">
+                                    Your R500 referral reward is processed.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Consent note -->
+                <div class="rounded-2xl border border-brand-primary/15
+                   bg-brand-primary/[0.05] p-5">
+
+                    <div class="flex gap-3">
+
+                        <div class="flex h-9 w-9 shrink-0 items-center
+                       justify-center rounded-xl
+                       bg-brand-primary/10 text-brand-primary">
+
+                            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor"
+                                stroke-width="1.8">
+
+                                <path d="M12 3 4 6v5c0 5 3 8 8 10
+                       5-2 8-5 8-10V6l-8-3Z" />
+
+                                <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="text-xs font-bold text-brand-dark">
+                                Consent is important
+                            </p>
+
+                            <p class="mt-1 text-[11px] leading-5 text-slate-500">
+                                Only submit someone's details after they have
+                                agreed to be contacted by ThuthukaSA.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+        }
+
+    </div>
+
+</div>

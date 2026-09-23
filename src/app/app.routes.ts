@@ -49,76 +49,41 @@ export const routes: Routes = [
             {
                 path: 'referrals',
                 loadComponent: () =>
-                    import('./shared/feature-placeholder/feature-placeholder')
-                        .then(m => m.FeaturePlaceholder),
-
-                data: {
-                    title: 'Referrals',
-                    eyebrow: 'Referral Management',
-                    audience: 'admin',
-                    description:
-                        'Manage and track referrals submitted through the Siyasizana Referral Programme.',
-                },
+                    import('./features/admin/referrals/referrals')
+                        .then(m => m.Referrals),
+                title: 'Referrals | Siyasizana',
             },
 
             {
                 path: 'referrers',
                 loadComponent: () =>
-                    import('./shared/feature-placeholder/feature-placeholder')
-                        .then(m => m.FeaturePlaceholder),
-
-                data: {
-                    title: 'Referrers',
-                    eyebrow: 'Customer Management',
-                    audience: 'admin',
-                    description:
-                        'Manage participating ThuthukaSA customers and their referral activity.',
-                },
+                    import('./features/admin/referrers/referrers')
+                        .then(m => m.Referrers),
+                title: 'Referrers | Siyasizana',
             },
 
             {
                 path: 'products',
                 loadComponent: () =>
-                    import('./shared/feature-placeholder/feature-placeholder')
-                        .then(m => m.FeaturePlaceholder),
-
-                data: {
-                    title: 'Products',
-                    eyebrow: 'Product Management',
-                    audience: 'admin',
-                    description:
-                        'Manage the financial products associated with the Siyasizana Referral Programme.',
-                },
+                    import('./features/admin/products/products')
+                        .then(m => m.Products),
+                title: 'Products | Siyasizana',
             },
 
             {
                 path: 'reports',
                 loadComponent: () =>
-                    import('./shared/feature-placeholder/feature-placeholder')
-                        .then(m => m.FeaturePlaceholder),
-
-                data: {
-                    title: 'Reports & Analytics',
-                    eyebrow: 'Programme Insights',
-                    audience: 'admin',
-                    description:
-                        'View referral performance, conversions, rewards and programme insights.',
-                },
+                    import('./features/admin/reports/reports')
+                        .then(m => m.Reports),
+                title: 'Reports | Siyasizana',
             },
 
             {
                 path: 'users',
                 loadComponent: () =>
-                    import('./shared/feature-placeholder/feature-placeholder')
-                        .then(m => m.FeaturePlaceholder),
-
-                data: {
-                    title: 'Users',
-                    eyebrow: 'Access Management',
-                    audience: 'admin',
-                    description:
-                        'Manage authorised users who have access to the Siyasizana management portal.',
-                },
+                    import('./features/admin/users/users')
+                        .then(m => m.Users),
+                title: 'Users | Siyasizana',
             },
 
             {
@@ -154,64 +119,39 @@ export const routes: Routes = [
                 path: 'new',
                 loadComponent: () =>
                     import(
-                        './shared/feature-placeholder/feature-placeholder'
-                    ).then(m => m.FeaturePlaceholder),
-
-                data: {
-                    title: 'Make a Referral',
-                    eyebrow: 'New Referral',
-                    audience: 'referrer',
-                    description:
-                        'Refer a family member, friend or colleague to ThuthukaSA.',
-                },
+                        './features/referrer/new/new'
+                    ).then(m => m.New),
+                title: 'Make a Referral | Siyasizana',
             },
 
             {
                 path: 'referrals',
                 loadComponent: () =>
                     import(
-                        './shared/feature-placeholder/feature-placeholder'
-                    ).then(m => m.FeaturePlaceholder),
+                        './features/referrer/referrals/referrals'
+                    ).then(m => m.Referrals),
 
-                data: {
-                    title: 'My Referrals',
-                    eyebrow: 'Referral Activity',
-                    audience: 'referrer',
-                    description:
-                        'View and follow the progress of referrals you have submitted.',
-                },
+                title: 'My Referrals | Siyasizana',
             },
 
-            {
-                path: 'rewards',
-                loadComponent: () =>
-                    import(
-                        './shared/feature-placeholder/feature-placeholder'
-                    ).then(m => m.FeaturePlaceholder),
+            // {
+            //     path: 'rewards',
+            //     loadComponent: () =>
+            //         import(
+            //             './features/referrer/rewards/rewards'
+            //         ).then(m => m.Rewards),
 
-                data: {
-                    title: 'My Rewards',
-                    eyebrow: 'Siyasizana Rewards',
-                    audience: 'referrer',
-                    description:
-                        'Track qualifying, pending and paid Siyasizana referral rewards.',
-                },
-            },
+            //     title: 'My Rewards | Siyasizana',
+            // },
 
             {
                 path: 'profile',
                 loadComponent: () =>
                     import(
-                        './shared/feature-placeholder/feature-placeholder'
-                    ).then(m => m.FeaturePlaceholder),
+                        './features/referrer/profile/profile'
+                    ).then(m => m.Profile),
 
-                data: {
-                    title: 'My Profile',
-                    eyebrow: 'My Account',
-                    audience: 'referrer',
-                    description:
-                        'Manage your Siyasizana account and personal information.',
-                },
+                title: 'My Profile | Siyasizana',
             },
 
             {

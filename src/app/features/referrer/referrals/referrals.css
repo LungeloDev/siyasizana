@@ -1,0 +1,566 @@
+:host {
+    display: block;
+}
+
+
+/* =========================================================
+   MY REFERRALS
+   Siyasizana / ThuthukaSA
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Summary Cards
+--------------------------------------------------------- */
+
+.summary-card {
+    display: flex;
+
+    min-height: 7.25rem;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1.25rem;
+
+    border: 1px solid #f1f5f9;
+    border-radius: 1.25rem;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.035);
+
+    transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+
+.summary-card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(247, 148, 29, 0.16);
+
+    box-shadow:
+        0 16px 35px rgba(15, 23, 42, 0.055);
+}
+
+
+.summary-icon {
+    display: flex;
+
+    width: 2.8rem;
+    height: 2.8rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.9rem;
+
+    background:
+        rgba(247, 148, 29, 0.09);
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.summary-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+.summary-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    color: #94a3b8;
+}
+
+
+.summary-value {
+    margin-top: 0.3rem;
+
+    font-size: 1.45rem;
+    font-weight: 800;
+
+    letter-spacing: -0.035em;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Search
+--------------------------------------------------------- */
+
+.referral-search {
+    position: relative;
+
+    width: 100%;
+    max-width: 24rem;
+}
+
+
+.referral-search input {
+    width: 100%;
+
+    min-height: 2.8rem;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 0.8rem;
+
+    outline: none;
+
+    background: #ffffff;
+
+    padding:
+        0.75rem 1rem 0.75rem 2.75rem;
+
+    font-family:
+        "Woodford Pro",
+        sans-serif;
+
+    font-size: 0.75rem;
+    font-weight: 500;
+
+    color:
+        var(--color-brand-dark);
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+
+.referral-search input::placeholder {
+    color: #94a3b8;
+}
+
+
+.referral-search input:focus {
+    border-color:
+        var(--color-brand-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(247, 148, 29, 0.08);
+}
+
+
+.search-icon {
+    position: absolute;
+
+    left: 0.95rem;
+    top: 50%;
+
+    width: 1rem;
+    height: 1rem;
+
+    color: #94a3b8;
+
+    pointer-events: none;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* ---------------------------------------------------------
+   Filters
+--------------------------------------------------------- */
+
+.filter-button {
+    flex-shrink: 0;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    padding:
+        0.55rem 0.85rem;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    color: #64748b;
+
+    transition:
+        border-color 180ms ease,
+        background 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+
+.filter-button:hover {
+    border-color:
+        rgba(247, 148, 29, 0.3);
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+.filter-active {
+    border-color:
+        var(--color-brand-primary) !important;
+
+    background:
+        var(--color-brand-primary) !important;
+
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        0 7px 18px rgba(247, 148, 29, 0.16);
+}
+
+
+/* ---------------------------------------------------------
+   Table
+--------------------------------------------------------- */
+
+.table-heading {
+    padding:
+        0.85rem 1.5rem;
+
+    text-align: left;
+
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+
+    color: #94a3b8;
+}
+
+
+.table-cell {
+    padding:
+        1rem 1.5rem;
+
+    vertical-align: middle;
+}
+
+
+.referral-row {
+    border-bottom:
+        1px solid #f1f5f9;
+
+    transition:
+        background 180ms ease;
+}
+
+
+.referral-row:last-child {
+    border-bottom: 0;
+}
+
+
+.referral-row:hover {
+    background:
+        rgba(247, 148, 29, 0.018);
+}
+
+
+/* ---------------------------------------------------------
+   Avatar
+--------------------------------------------------------- */
+
+.referral-avatar {
+    display: flex;
+
+    width: 2.6rem;
+    height: 2.6rem;
+
+    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(247, 148, 29, 0.12);
+
+    border-radius: 0.85rem;
+
+    background:
+        rgba(247, 148, 29, 0.08);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    color:
+        var(--color-brand-primary);
+}
+
+
+/* ---------------------------------------------------------
+   Status
+--------------------------------------------------------- */
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    border-radius: 999px;
+
+    padding:
+        0.4rem 0.65rem;
+
+    white-space: nowrap;
+
+    font-size: 0.6rem;
+    font-weight: 800;
+}
+
+
+.status-dot {
+    width: 0.35rem;
+    height: 0.35rem;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        currentColor;
+}
+
+
+/* Submitted */
+
+.status-submitted {
+    background: #f1f5f9;
+
+    color: #64748b;
+}
+
+
+/* In Progress */
+
+.status-progress {
+    background:
+        rgba(59, 130, 246, 0.09);
+
+    color: #2563eb;
+}
+
+
+/* Qualified */
+
+.status-qualified {
+    background:
+        rgba(247, 148, 29, 0.10);
+
+    color:
+        var(--color-brand-primary-dark);
+}
+
+
+/* Reward Paid */
+
+.status-paid {
+    background:
+        rgba(22, 163, 74, 0.09);
+
+    color: #15803d;
+}
+
+
+/* ---------------------------------------------------------
+   Mobile Cards
+--------------------------------------------------------- */
+
+.mobile-label {
+    font-size: 0.58rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: #94a3b8;
+}
+
+
+.mobile-value {
+    margin-top: 0.3rem;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ---------------------------------------------------------
+   Entrance Animation
+--------------------------------------------------------- */
+
+.summary-card {
+    animation:
+        referralCardEnter 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+.summary-card:nth-child(2) {
+    animation-delay: 50ms;
+}
+
+
+.summary-card:nth-child(3) {
+    animation-delay: 100ms;
+}
+
+
+.summary-card:nth-child(4) {
+    animation-delay: 150ms;
+}
+
+
+section {
+    animation:
+        referralsEnter 550ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both;
+}
+
+
+@keyframes referralCardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes referralsEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Scrollbar
+--------------------------------------------------------- */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+
+    background: #cbd5e1;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+--------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+
+    .referral-search {
+        max-width: 100%;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .summary-card {
+        min-height: 6.5rem;
+
+        padding: 1rem;
+    }
+
+
+    .summary-value {
+        font-size: 1.3rem;
+    }
+
+
+    .filter-button {
+        padding:
+            0.5rem 0.75rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .summary-card,
+    section {
+        animation: none;
+    }
+
+
+    .summary-card,
+    .filter-button,
+    .referral-row,
+    .referral-search input {
+        transition: none;
+    }
+
+
+    .summary-card:hover {
+        transform: none;
+    }
+
+}

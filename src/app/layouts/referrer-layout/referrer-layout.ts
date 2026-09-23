@@ -42,11 +42,11 @@ export class ReferrerLayout {
       route: '/referrer/referrals',
       icon: 'referrals',
     },
-    {
-      label: 'My Rewards',
-      route: '/referrer/rewards',
-      icon: 'rewards',
-    },
+    // {
+    //   label: 'My Rewards',
+    //   route: '/referrer/rewards',
+    //   icon: 'rewards',
+    // },
     {
       label: 'My Profile',
       route: '/referrer/profile',

@@ -1,1 +1,1002 @@
-<p>reports works!</p>
+<div class="min-h-[calc(100vh-88px)]
+         bg-brand-light">
+
+    <div class="mx-auto max-w-[1600px]
+           px-5 py-8
+           sm:px-7
+           lg:px-9 lg:py-10">
+
+        <!-- =================================================== -->
+        <!-- HEADER -->
+        <!-- =================================================== -->
+
+        <div class="mb-8 flex flex-col
+             justify-between gap-5
+             xl:flex-row
+             xl:items-end">
+
+            <div>
+
+                <div class="mb-3 flex
+                 items-center gap-2">
+
+                    <span class="h-2 w-2
+                   rounded-full
+                   bg-brand-primary">
+                    </span>
+
+                    <span class="text-[10px]
+                   font-bold uppercase
+                   tracking-[0.2em]
+                   text-brand-primary">
+                        Programme Analytics
+                    </span>
+
+                </div>
+
+                <h1 class="text-3xl font-bold
+                 tracking-[-0.035em]
+                 text-brand-dark
+                 sm:text-4xl">
+                    Reports
+                </h1>
+
+                <p class="mt-3 max-w-2xl
+                 text-sm leading-6
+                 text-slate-500">
+                    Monitor referral performance,
+                    conversions, rewards and referrer
+                    activity across the Siyasizana
+                    Referral Programme.
+                </p>
+
+            </div>
+
+            <div class="flex flex-col gap-3
+               sm:flex-row">
+
+                <div class="period-select">
+
+                    <select [(ngModel)]="selectedPeriod">
+
+                        @for (
+                        period of periods;
+                        track period
+                        ) {
+
+                        <option [value]="period">
+                            {{ period }}
+                        </option>
+
+                        }
+
+                    </select>
+
+                    <svg viewBox="0 0 24 24" fill="none" class="select-arrow" stroke="currentColor" stroke-width="2">
+
+                        <path d="m7 10 5 5 5-5" />
+
+                    </svg>
+
+                </div>
+
+                <button type="button" class="export-button" (click)="exportReport()">
+
+                    <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M12 3v12" />
+
+                        <path d="m7 10 5 5 5-5" />
+
+                        <path d="M5 21h14" />
+
+                    </svg>
+
+                    Export Report
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================== -->
+        <!-- KPI CARDS -->
+        <!-- =================================================== -->
+
+        <div class="mb-6 grid gap-4
+             sm:grid-cols-2
+             xl:grid-cols-5">
+
+            <!-- Referrals -->
+
+            <div class="report-kpi">
+
+                <div class="kpi-icon
+                 icon-neutral">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M5 7h14" />
+                        <path d="M5 12h14" />
+                        <path d="M5 17h14" />
+
+                    </svg>
+
+                </div>
+
+                <p class="kpi-label">
+                    Total Referrals
+                </p>
+
+                <p class="kpi-value">
+                    {{ totalReferrals }}
+                </p>
+
+                <div class="kpi-footer">
+                    Programme total
+                </div>
+
+            </div>
+
+
+            <!-- Successful -->
+
+            <div class="report-kpi">
+
+                <div class="kpi-icon
+                 icon-green">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="m8 12 2.5 2.5L16 9" />
+
+                    </svg>
+
+                </div>
+
+                <p class="kpi-label">
+                    Successful
+                </p>
+
+                <p class="kpi-value">
+                    {{ successfulReferrals }}
+                </p>
+
+                <div class="kpi-footer">
+                    Qualified referrals
+                </div>
+
+            </div>
+
+
+            <!-- Conversion -->
+
+            <div class="report-kpi">
+
+                <div class="kpi-icon
+                 icon-blue">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <path d="M5 19V9" />
+                        <path d="M12 19V5" />
+                        <path d="M19 19v-7" />
+
+                    </svg>
+
+                </div>
+
+                <p class="kpi-label">
+                    Conversion Rate
+                </p>
+
+                <p class="kpi-value">
+                    {{ conversionRate }}%
+                </p>
+
+                <div class="kpi-footer">
+                    Referral success rate
+                </div>
+
+            </div>
+
+
+            <!-- Paid -->
+
+            <div class="report-kpi">
+
+                <div class="kpi-icon
+                 icon-orange">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <rect x="3" y="6" width="18" height="13" rx="2" />
+
+                        <path d="M3 10h18" />
+
+                    </svg>
+
+                </div>
+
+                <p class="kpi-label">
+                    Rewards Paid
+                </p>
+
+                <p class="kpi-value">
+                    R{{ rewardsPaid.toLocaleString() }}
+                </p>
+
+                <div class="kpi-footer">
+                    Total paid rewards
+                </div>
+
+            </div>
+
+
+            <!-- Due -->
+
+            <div class="report-kpi">
+
+                <div class="kpi-icon
+                 icon-purple">
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+
+                        <circle cx="12" cy="12" r="9" />
+
+                        <path d="M12 7v5" />
+
+                        <path d="M12 16h.01" />
+
+                    </svg>
+
+                </div>
+
+                <p class="kpi-label">
+                    Rewards Due
+                </p>
+
+                <p class="kpi-value">
+                    R{{ rewardsDue.toLocaleString() }}
+                </p>
+
+                <div class="kpi-footer">
+                    Awaiting payment
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================== -->
+        <!-- PERFORMANCE + SOURCES -->
+        <!-- =================================================== -->
+
+        <div class="grid gap-6
+             xl:grid-cols-[1.65fr_0.85fr]">
+
+
+            <!-- ================================================= -->
+            <!-- MONTHLY PERFORMANCE -->
+            <!-- ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            Referral Activity
+                        </p>
+
+                        <h2 class="card-title">
+                            Referral Performance
+                        </h2>
+
+                        <p class="card-description">
+                            Monthly referral and successful
+                            conversion activity.
+                        </p>
+
+                    </div>
+
+                    <div class="hidden items-center
+                   gap-5 sm:flex">
+
+                        <div class="legend-item">
+
+                            <span class="legend-dot
+                       bg-brand-primary">
+                            </span>
+
+                            Referrals
+
+                        </div>
+
+                        <div class="legend-item">
+
+                            <span class="legend-dot
+                       bg-brand-dark">
+                            </span>
+
+                            Successful
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Chart -->
+
+                <div class="chart-wrapper">
+
+                    <div class="chart-grid">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="bar-chart">
+
+                        @for (
+                        item of monthlyPerformance;
+                        track item.month
+                        ) {
+
+                        <div class="bar-column">
+
+                            <div class="bar-area">
+
+                                <div class="bar-group">
+
+                                    <div class="chart-bar
+                             referral-bar" [style.height.%]="
+                        getMonthlyHeight(
+                          item.referrals
+                        )
+                      " [title]="
+                        item.referrals +
+                        ' referrals'
+                      ">
+                                    </div>
+
+                                    <div class="chart-bar
+                             success-bar" [style.height.%]="
+                        getSuccessfulHeight(
+                          item.successful
+                        )
+                      " [title]="
+                        item.successful +
+                        ' successful'
+                      ">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <p class="chart-month">
+                                {{ item.month }}
+                            </p>
+
+                        </div>
+
+                        }
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- REFERRAL SOURCES -->
+            <!-- ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            Acquisition
+                        </p>
+
+                        <h2 class="card-title">
+                            Referral Sources
+                        </h2>
+
+                        <p class="card-description">
+                            Where programme referrals
+                            originate.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-6 space-y-5">
+
+                    @for (
+                    source of referralSources;
+                    track source.name
+                    ) {
+
+                    <div>
+
+                        <div class="mb-2 flex
+                       items-center
+                       justify-between">
+
+                            <div class="flex items-center
+                         gap-2.5">
+
+                                <span class="source-marker">
+                                </span>
+
+                                <span class="text-[11px]
+                           font-semibold
+                           text-slate-600">
+                                    {{ source.name }}
+                                </span>
+
+                            </div>
+
+                            <div class="flex items-center
+                         gap-3">
+
+                                <span class="text-[10px]
+                           font-semibold
+                           text-slate-400">
+                                    {{ source.referrals }}
+                                </span>
+
+                                <span class="w-8 text-right
+                           text-[10px]
+                           font-bold
+                           text-brand-dark">
+                                    {{ source.percentage }}%
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="source-track">
+
+                            <div class="source-fill" [style.width.%]="
+                    source.percentage
+                  ">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    }
+
+                </div>
+
+
+                <div class="source-summary">
+
+                    <div>
+
+                        <p class="text-[9px]
+                     font-bold uppercase
+                     tracking-[0.1em]
+                     text-slate-400">
+                            Leading Source
+                        </p>
+
+                        <p class="mt-1 text-xs
+                     font-bold
+                     text-brand-dark">
+                            Existing Customers
+                        </p>
+
+                    </div>
+
+                    <span class="text-xl font-extrabold
+                   text-brand-primary">
+                        45%
+                    </span>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =================================================== -->
+        <!-- PRODUCT + REWARD SUMMARY -->
+        <!-- =================================================== -->
+
+        <div class="mt-6 grid gap-6
+             xl:grid-cols-[1.3fr_0.7fr]">
+
+
+            <!-- ================================================= -->
+            <!-- PRODUCT PERFORMANCE -->
+            <!-- ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            Product Analysis
+                        </p>
+
+                        <h2 class="card-title">
+                            Product Performance
+                        </h2>
+
+                        <p class="card-description">
+                            Referral volume and conversion
+                            across programme products.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-6 space-y-5">
+
+                    @for (
+                    product of productPerformance;
+                    track product.name
+                    ) {
+
+                    <div class="product-row">
+
+                        <div class="mb-2.5 flex
+                       items-center
+                       justify-between gap-4">
+
+                            <div>
+
+                                <p class="text-xs font-bold
+                           text-brand-dark">
+                                    {{ product.name }}
+                                </p>
+
+                                <p class="mt-1 text-[9px]
+                           text-slate-400">
+                                    {{ product.successful }}
+                                    successful from
+                                    {{ product.referrals }}
+                                    referrals
+                                </p>
+
+                            </div>
+
+                            <div class="text-right">
+
+                                <p class="text-sm font-bold
+                           text-brand-dark">
+                                    {{ getProductConversion(product) }}%
+                                </p>
+
+                                <p class="text-[8px]
+                           font-bold uppercase
+                           tracking-wider
+                           text-slate-400">
+                                    Conversion
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="product-track">
+
+                            <div class="product-fill" [style.width.%]="
+                    getProductPercentage(
+                      product.referrals
+                    )
+                  ">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    }
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- REWARD STATUS -->
+            <!-- ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            Referral Fees
+                        </p>
+
+                        <h2 class="card-title">
+                            Reward Overview
+                        </h2>
+
+                        <p class="card-description">
+                            Current programme reward
+                            position.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reward-hero">
+
+                    <div class="reward-ring">
+
+                        <div class="reward-ring-inner">
+
+                            <span class="text-[9px]
+                       font-bold uppercase
+                       tracking-wider
+                       text-slate-400">
+                                Paid
+                            </span>
+
+                            <strong class="mt-1 text-xl
+                       text-brand-dark">
+                                R174k
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-6 space-y-3">
+
+                    <div class="reward-row">
+
+                        <div class="flex items-center
+                     gap-3">
+
+                            <span class="reward-status-dot
+                       bg-green-500">
+                            </span>
+
+                            <div>
+
+                                <p class="reward-label">
+                                    Paid
+                                </p>
+
+                                <p class="reward-description">
+                                    Completed payments
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <strong class="reward-value">
+                            R174,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="reward-row">
+
+                        <div class="flex items-center
+                     gap-3">
+
+                            <span class="reward-status-dot
+                       bg-brand-primary">
+                            </span>
+
+                            <div>
+
+                                <p class="reward-label">
+                                    Due
+                                </p>
+
+                                <p class="reward-description">
+                                    Qualified for payment
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <strong class="reward-value">
+                            R14,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="reward-row">
+
+                        <div class="flex items-center
+                     gap-3">
+
+                            <span class="reward-status-dot
+                       bg-slate-300">
+                            </span>
+
+                            <div>
+
+                                <p class="reward-label">
+                                    Pending
+                                </p>
+
+                                <p class="reward-description">
+                                    Awaiting qualification
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <strong class="reward-value">
+                            R27,500
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =================================================== -->
+        <!-- TOP REFERRERS -->
+        <!-- =================================================== -->
+
+        <section class="report-card mt-6">
+
+            <div class="card-header">
+
+                <div>
+
+                    <p class="card-eyebrow">
+                        Performance
+                    </p>
+
+                    <h2 class="card-title">
+                        Top Referrers
+                    </h2>
+
+                    <p class="card-description">
+                        Leading Siyasizana programme
+                        participants based on successful
+                        referrals.
+                    </p>
+
+                </div>
+
+                <div class="rounded-xl
+                 bg-brand-primary/[0.06]
+                 px-4 py-2.5">
+
+                    <p class="text-[8px]
+                   font-bold uppercase
+                   tracking-[0.12em]
+                   text-slate-400">
+                        Current Leader
+                    </p>
+
+                    <p class="mt-1 text-xs
+                   font-bold
+                   text-brand-primary">
+                        Nomsa Dlamini
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="mt-6 overflow-x-auto">
+
+                <table class="w-full min-w-[760px]">
+
+                    <thead>
+
+                        <tr class="border-b
+                     border-slate-100">
+
+                            <th class="table-heading">
+                                Rank
+                            </th>
+
+                            <th class="table-heading">
+                                Referrer
+                            </th>
+
+                            <th class="table-heading">
+                                Referral Code
+                            </th>
+
+                            <th class="table-heading">
+                                Referrals
+                            </th>
+
+                            <th class="table-heading">
+                                Successful
+                            </th>
+
+                            <th class="table-heading">
+                                Success Rate
+                            </th>
+
+                            <th class="table-heading
+                       text-right">
+                                Rewards
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @for (
+                        referrer of topReferrers;
+                        track referrer.code
+                        ) {
+
+                        <tr class="leader-row">
+
+                            <td class="table-cell">
+
+                                <div [class]="
+                      referrer.position <= 3
+                        ? 'rank-badge rank-top'
+                        : 'rank-badge'
+                    ">
+                                    {{ referrer.position }}
+                                </div>
+
+                            </td>
+
+
+                            <td class="table-cell">
+
+                                <div class="flex items-center
+                           gap-3">
+
+                                    <div class="referrer-avatar">
+                                        {{ referrer.initials }}
+                                    </div>
+
+                                    <span class="text-xs
+                             font-bold
+                             text-brand-dark">
+                                        {{ referrer.name }}
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td class="table-cell">
+
+                                <span class="referral-code">
+                                    {{ referrer.code }}
+                                </span>
+
+                            </td>
+
+
+                            <td class="table-cell">
+
+                                <span class="table-number">
+                                    {{ referrer.referrals }}
+                                </span>
+
+                            </td>
+
+
+                            <td class="table-cell">
+
+                                <span class="table-number">
+                                    {{ referrer.successful }}
+                                </span>
+
+                            </td>
+
+
+                            <td class="table-cell">
+
+                                <div class="flex items-center
+                           gap-3">
+
+                                    <div class="mini-track">
+
+                                        <div class="mini-fill" [style.width.%]="
+                          (
+                            referrer.successful /
+                            referrer.referrals
+                          ) * 100
+                        ">
+                                        </div>
+
+                                    </div>
+
+                                    <span class="text-[10px]
+                             font-bold
+                             text-slate-500">
+                                        {{
+                                        (
+                                        referrer.successful /
+                                        referrer.referrals *
+                                        100
+                                        ).toFixed(0)
+                                        }}%
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td class="table-cell
+                         text-right">
+
+                                <span class="text-xs
+                           font-bold
+                           text-brand-dark">
+                                    R{{ referrer.rewards.toLocaleString() }}
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
